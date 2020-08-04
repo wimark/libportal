@@ -1,0 +1,346 @@
+[ConfigurationStatus]
+default = "Empty"
+[ConfigurationStatus.variants]
+Empty     = "empty"
+OK        = "ok"
+Offline   = "offline"
+Updating  = "updating"
+Upgrading = "upgrading"
+Rebooting = "rebooting"
+DontUse1  = "pending"
+DontUse2  = "error"
+
+[Module]
+default = "None"
+[Module.variants]
+Any        = "+"
+None       = ""
+Dummy      = "DUMMY"
+Backend    = "BACKEND"
+CPE        = "CPE"
+Config     = "CONFIG"
+DB         = "DB"
+Stat       = "STAT"
+Monitor    = "MONITOR"
+LBS        = "LBS"
+ClientStat = "CLIENT_STAT"
+MQTTLog    = "MQTT_LOG"
+CPEStat    = "CPE_STAT"
+AC         = "AC"
+TunManager = "TUN_MANAGER"
+RRM        = "RRM"
+FW         = "FW"
+Redirect   = "REDIRECT"
+PortalBack = "PORTAL_BACKEND"
+RadiusGw   = "RADIUS_GATEWAY"
+Mediator   = "MEDIATOR"
+StatLBS    = "STAT-LBS"
+AnalMW     = "ANAL-MW"
+RadarMW    = "RADAR-MW"
+RadarExportMW  = "RADAR-EXPORT-MW"
+ClientDistance = "CLIENT-DISTANCE"
+
+[Operation]
+[Operation.variants]
+Any       = "+"
+Create    = "C"
+Delete    = "D"
+Read      = "R"
+Update    = "U"
+LuaScript = "LUA"
+SHScript  = "SH"
+CPEStatus = "STATUS"
+JSONRPC   = "JSONRPC"
+
+[SystemEventType]
+[SystemEventType.variants]
+Any                     = "+"
+CPEConnected            = "CPE_CONNECTED"
+CPEDisconnected         = "CPE_DISCONNECTED"
+MonitorRuleViolation    = "MONITOR_RULE_VIOLATION"
+CPEInterfaceState       = "CPE_INTERFACE_STATE"
+ClientConnected         = "CLIENT_CONNECTED"
+ClientDisconnected      = "CLIENT_DISCONNECTED"
+ServiceFatalError       = "SERVICE_FATAL_ERROR"
+ServiceConnected        = "SERVICE_CONNECTED"
+ServiceDisconnected     = "SERVICE_DISCONNECTED"
+DaemonSettingsChanged   = "DAEMON_SETTINGS_CHANGE"
+WLANCentrAccChanged     = "WLAN_CENTR_ACC_CHANGE"
+SystemTimeChanged       = "SYSTEM_TIME_CHANGE"
+RRMStatus               = "RRM_STATUS_DATA"
+FirmwareUploaded        = "FIRMWARE_UPLOADED"
+CpeFirmwareAvailable    = "CPE_FIRMWARE_AVAILABLE"
+RadiusAccountingSend    = "RADIUS_ACCOUNTING_SEND"
+LoggedError             = "LOGGED_ERROR"
+RadarExportUpdate       = "RADAR_EXPORT_UPDATE"
+ClientAuthorization     = "CLIENT_AUTHORIZATION"
+DHCPAck                 = "DHCP_ACK"
+
+[SystemEventLevel]
+default = "DEBUG"
+[SystemEventLevel.variants]
+INFO      = "INFO"
+DEBUG     = "DEBUG"
+ERROR     = "ERROR"
+WARNING   = "WARNING"
+
+[SecuritySuite]
+[SecuritySuite.variants]
+AES  = "aes"
+TKIP = "tkip"
+
+[SecurityType]
+default = "None"
+[SecurityType.variants]
+WPA2Enterprise = "wpa2enterprise"
+WPA2Personal   = "wpa2personal"
+WPAEnterprise  = "wpaenterprise"
+WPAPersonal    = "wpapersonal"
+None           = "open"
+
+[CPEAgentStatusType]
+default = "Undefined"
+[CPEAgentStatusType.variants]
+Success     = "success"
+Undefined   = "undefined"
+SyntaxError = "syntax"
+Exception   = "exception"
+
+[StatEventRuleType]
+[StatEventRuleType.variants]
+FreeRAM      = "free_ram"
+CPUload      = "cpu_load"
+Connected    = "connected"
+Disconnected = "disconnected"
+ConfigError  = "config_error"
+IfaceError   = "iface_error"
+ClientCon    = "client_con"
+ClientDis    = "client_dis"
+ClientFar    = "client_far"
+
+[ClientStatPacketType]
+[ClientStatPacketType.variants]
+OnOld      = "Accounting-On"
+OffOld     = "Accounting-Off"
+StartOld   = "Start"
+StopOld    = "Stop"
+InterimOld = "Interim-Update"
+Start      = "start"
+Stop       = "stop"
+Interim    = "interim"
+
+[WirelessClientType]
+default = "Other"
+[WirelessClientType.variants]
+Camera = "camera"
+Other  = "other"
+Wired  = "wired"
+
+[WirelessClientState]
+[WirelessClientState.variants]
+Connected     = "CONNECTED"
+Disconnected  = "DISCONNECTED"
+
+[ConnectionModeType]
+default = "ModeLegacy"
+[ConnectionModeType.variants]
+ModeAC      = "ac"
+ModeN       = "n"
+ModeLegacy  = "legacy"
+
+[MacFilterType]
+default = "None"
+[MacFilterType.variants]
+BlackList = "BlackList"
+WhiteList = "WhiteList"
+None      = "None"
+
+[ServiceState]
+[ServiceState.variants]
+Connected    = "CONNECTED"
+Disconnected = "DISCONNECTED"
+Pending      = "PENDING"
+
+[CPEInterfaceState]
+[CPEInterfaceState.variants]
+Enabled       = "ENABLED"
+Disabled      = "DISABLED"
+ACS           = "ACS"
+DFS           = "DFS"
+CountryUpdate = "COUNTRY_UPDATE"
+HtScan        = "HT_SCAN"
+Unknown       = "UNKNOWN"
+Uninitialized = "UNINITIALIZED"
+Terminated    = "TERMINATED"
+
+[TunManagerRPC]
+[TunManagerRPC.variants]
+CreateL2TunnelSession = "CreateL2TunnelSession"
+DeleteL2TunnelSession = "DeleteL2TunnelSession"
+
+[MCSRequire]
+default = "Off"
+[MCSRequire.variants]
+Off = "off"
+HT  = "ht"
+VHT = "vht"
+
+[FirewallPolicy]
+default = "Empty"
+[FirewallPolicy.variants]
+Empty  = ""
+Drop   = "DROP"
+Accept = "ACCEPT"
+Return = "RETURN"
+
+[L3Protocol]
+default = "Empty"
+[L3Protocol.variants]
+Empty = ""
+IP    = "ip"
+IPv4  = "ipv4"
+IPv6  = "ipv6"
+
+[L4Protocol]
+default = "Empty"
+[L4Protocol.variants]
+Empty = ""
+TCP   = "TCP"
+UDP   = "UDP"
+
+[FirewallDirection]
+default = "Any"
+[FirewallDirection.variants]
+Any = "ANY"
+In  = "IN"
+Out = "OUT"
+
+[FirmwareUpdateMode]
+default = "Check"
+[FirmwareUpdateMode.variants]
+On    = "on"
+Off   = "off"
+Check = "check"
+
+[PortalAuthType]
+default = "None"
+[PortalAuthType.variants]
+None     = ""
+RADIUS   = "radius"
+SMS      = "sms"
+OAuth2   = "oauth2"
+External = "external"
+
+[RadiusMessageType]
+default = "AccountingRequest"
+[RadiusMessageType.variants]
+AccountingRequest = "accounting"
+AccessRequest     = "access-request"
+AccessAccept      = "access-accept"
+AccessReject      = "access-reject"
+
+[RRMAlgoType]
+default = "Greed"
+[RRMAlgoType.variants]
+Dummy = "Dummy"
+Blind = "Blind"
+Greed = "Greed"
+
+[WMMAccessCategory]
+default = "Background"
+[WMMAccessCategory.variants]
+Background = "BK"
+BestEffort = "BE"
+Video = "VI"
+Voice = "VO"
+
+[ControllerStatusType]
+default = "Empty"
+[ControllerStatusType.variants]
+Empty        = "empty"
+Error        = "error"
+Connected    = "connected"
+Disconnected = "disconnected"
+Updating     = "updating"
+Provisioning = "provision"
+
+[RadarExportType]
+default = "Email"
+[RadarExportType.variants]
+Email    = "email"
+Yandex   = "yandex"
+Mytarget = "mytarget"
+External = "external"
+
+[RadarExportFormat]
+default = "CSV"
+[RadarExportFormat.variants]
+CSV      = "csv"
+Json     = "json"
+Txt      = "txt"
+
+[RadarExportFilter]
+default = "All"
+[RadarExportFilter.variants]
+All     = "all"
+New     = "new"
+Return  = "return"
+
+[RadarExportStatus]
+default = "Created"
+[RadarExportStatus.variants]
+Created  = "created"
+Updated  = "updated"
+Running  = "running"
+Finished = "finished"
+
+[SpeedType]
+default = "Kbit"
+[SpeedType.variants]
+Kbit = "kbit"
+Mbit = "mbit"
+Gbit = "gbit"
+Tbit = "tbit"
+
+[PortalProfileType]
+default = "Free"
+[PortalProfileType.variants]
+Free     = "free"
+Sponsor  = "sponsor"
+Premium  = "premium"
+
+[ReportPeriod]
+default = "Now"
+[ReportPeriod.variants]
+Now   = "now"
+Day   = "day"
+Week  = "week"
+Month = "month"
+
+[ReportActionType]
+default = "Email"
+[ReportActionType.variants]
+Email  = "email"
+Script = "script"
+
+[ReportFormat]
+default = "Json"
+[ReportFormat.variants]
+CSV      = "csv"
+Json     = "json"
+Txt      = "txt"
+XLSX     = "xlsx"
+
+[ReportType]
+default = "Current"
+[ReportType.variants]
+Current = "current"
+Summary = "summary"
+
+[ReportSubject]
+default = "Clients"
+[ReportSubject.variants]
+Clients   = "clients"
+CPEs      = "cpes"
+Events    = "events"
+CPECommon = "cpes_common"
