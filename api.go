@@ -72,3 +72,13 @@ type PageStruct struct {
 	Limit  int
 	Offset int
 }
+
+// APIResponse struct for common response
+type APIResponse struct {
+	Status string `json:"status"`
+	Code   int    `json:"code"`
+
+	Items  interface{} `json:"data,omitempty"`
+	Total  int         `json:"total,omitempty"`
+	Errors []string    `json:"errors,omitempty"`
+}
