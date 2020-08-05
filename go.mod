@@ -1,10 +1,8 @@
-module libportal
+module bitbucket.org/wimarksystems/libportal
 
-go 1.14
+go 1.13
 
 require (
-	bitbucket.org/wimarksystems/libwimark v1.3.88 // indirect
-	github.com/go-test/deep v1.0.7 // indirect
-	github.com/stretchr/testify v1.6.1 // indirect
-	gopkg.in/yaml.v2 v2.3.0 // indirect
+	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
+	github.com/mileusna/useragent v0.0.0-20200130135054-eb80d80699e8
 )

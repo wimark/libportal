@@ -21,7 +21,7 @@ type PortalAuthObject struct {
 
 // PortalClientSession is struct for store portal client
 type PortalClientSession struct {
-	Id string `json:"id" bson:"_id"`
+	ID string `json:"id" bson:"_id"`
 
 	// identity
 	MAC  string `json:"mac" bson:"mac"`
