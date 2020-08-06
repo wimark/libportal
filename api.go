@@ -8,10 +8,9 @@ type APIRequest struct {
 	Ids []string `json:"ids" query:"ids[]"`
 
 	// Pagination
-	Sort   string     `json:"sort" query:"sort"`
-	Offset int        `json:"offset" query:"offset"`
-	Limit  int        `json:"limit" query:"limit"`
-	Page   PageStruct `json:"-" query:"-"`
+	Sort   string `json:"sort" query:"sort"`
+	Offset int    `json:"offset" query:"offset"`
+	Limit  int    `json:"limit" query:"limit"`
 
 	// for Search
 	SearchQuery string `json:"search,omitempty" query:"search"`
@@ -30,7 +29,7 @@ type APIRequest struct {
 
 	// account for black/white list
 	ActionList    PortalActionListType `json:"action_list" query:"action_list"`
-	AccountToList string                      `json:"account_to_list" query:"account_to_list"`
+	AccountToList string               `json:"account_to_list" query:"account_to_list"`
 
 	// query for stat (range / pie / timeseries)
 	Start   int64  `json:"start" query:"start"`
@@ -57,20 +56,7 @@ type APIRequest struct {
 
 	Query string `json:"q" query:"q"`
 
-	// Response items
-	ItemsRequest interface{} `json:"request" query:"request" form:"request"`
-	Items        interface{} `json:"-"`
-	Errors       []string    `json:"-"`
-	Total        int         `json:"-"`
-}
-
-
-// pageStruct struct for internal represent
-// of pagination
-type PageStruct struct {
-	Sort   string
-	Limit  int
-	Offset int
+	Request map[string]interface{} `json:"request" query:"request" form:"request"`
 }
 
 // APIResponse struct for common response
