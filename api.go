@@ -56,7 +56,7 @@ type APIRequest struct {
 
 	Query string `json:"q" query:"q"`
 
-	Request map[string]interface{} `json:"request" query:"request" form:"request"`
+	Request []map[string]interface{} `json:"request" query:"request" form:"request"`
 }
 
 // APIResponse struct for common response
