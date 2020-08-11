@@ -559,6 +559,32 @@ type PortalAdStatDaily struct {
 	CreateAt int64     `json:"create_at" bson:"create_at"`
 }
 
+type PortalAdLog struct {
+	ID      string                  `json:"id" bson:"id"`
+	IDAd    string                  `json:"id_ad" bson:"id_ad"`
+	Profile string                  `json:"profile" bson:"profile"`
+	TypeAd  PortalAdvertisementType `json:"type_ad" bson:"type_ad"`
+
+	Timestamp int64 `json:"timestamp" bson:"timestamp"`
+
+	UA UserAgent `json:"ua" bson:"ua"`
+
+	UserRotation struct {
+		Sex         string `json:"sex" bson:"sex"`
+		DateOfBirth struct {
+			Day   int `json:"day" bson:"day"`
+			Month int `json:"month" bson:"month"`
+			Year  int `json:"year" bson:"year"`
+		} `json:"date_of_birth" bson:"date_of_birth"`
+		Age int64 `json:"age" bson:"age"`
+	}
+
+	CPE      string `json:"cpe" bson:"cpe"`
+	MAC      string `json:"mac" bson:"mac"`
+	WLAN     string `json:"wlan" bson:"wlan"`
+	AdFollow bool   `json:"ad_follow" bson:"ad_follow"`
+}
+
 //PortalAuthorizationWithSN авторизация с помощью социальных сетей
 type PortalAuthorizationWithSN struct {
 	RedirectURL string `json:"redirect_url" bson:"redirect_url"`
