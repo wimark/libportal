@@ -569,15 +569,9 @@ type PortalAdLog struct {
 
 	UA UserAgent `json:"ua" bson:"ua"`
 
-	UserRotation struct {
-		Sex         string `json:"sex" bson:"sex"`
-		DateOfBirth struct {
-			Day   int `json:"day" bson:"day"`
-			Month int `json:"month" bson:"month"`
-			Year  int `json:"year" bson:"year"`
-		} `json:"date_of_birth" bson:"date_of_birth"`
-		Age int64 `json:"age" bson:"age"`
-	}
+	UserAge         int    `json:"user_age" bson:"user_age"`
+	UserDateOfBirth int64  `json:"user_date_of_birth" bson:"user_date_of_birth"`
+	UserSex         string `json:"user_sex" bson:"user_sex"`
 
 	CPE      string `json:"cpe" bson:"cpe"`
 	MAC      string `json:"mac" bson:"mac"`
