@@ -559,7 +559,7 @@ type PortalAdStatDaily struct {
 	CreateAt int64     `json:"create_at" bson:"create_at"`
 }
 
-type PortalAdLog struct {
+type PortalAdStatLog struct {
 	ID      string                  `json:"id" bson:"id"`
 	IDAd    string                  `json:"id_ad" bson:"id_ad"`
 	Profile string                  `json:"profile" bson:"profile"`
