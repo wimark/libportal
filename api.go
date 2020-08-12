@@ -163,3 +163,13 @@ type PortalResponseObject struct {
 	// data for new auth stage
 	Data2 interface{} `json:"data2,omitempty"`
 }
+
+type HTTPResponseObject struct {
+	Status string `json:"status,omitempty"`
+	Code   int    `json:"code"`
+
+	Description string      `json:"description,omitempty"`
+	Data        interface{} `json:"data,omitempty"`
+
+	State string `json:"state"`
+}
