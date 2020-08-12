@@ -68,3 +68,98 @@ type APIResponse struct {
 	Total  int         `json:"total,omitempty"`
 	Errors []string    `json:"errors,omitempty"`
 }
+
+// PortalRequestObject struct for request
+// from frontend to backend
+type PortalRequestObject struct {
+	// Needed client data
+	MAC  string `json:"mac" bson:"mac" form:"mac" query:"mac" validate:"required,mac"`
+	CPE  string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id" validate:"required,uuid"`
+	WLAN string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id" validate:"required,uuid"`
+	Ip   string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
+
+	// client credentials
+	Username string `json:"username,omitempty" bson:"username" form:"username" query:"username" validate:"-"`
+	Password string `json:"password,omitempty" bson:"password" form:"password" query:"password" validate:"-"`
+
+	// browser specific data
+	UserAgent string `json:"useragent"  bson:"useragent" form:"useragent" query:"useragent" validate:"-"`
+
+	// Address of platform CoA manager
+	SwitchURL string `json:"switch_url" validate:"-"`
+
+	// Remember period for user accounts
+	Remember int64 `json:"remember"`
+
+	// push aggrement
+	PushAgreement bool `json:"push_agree"`
+
+	// Type of choosen type
+	Type string `json:"type"`
+
+	// info for watched advertisement / poll
+	Ad PortalAdStatRequest `json:"ad"`
+
+	// auth type -- free / sponsor / paid / etc
+	AuthType string `json:"auth_type"`
+
+	// authentype -- sms / callback / etc
+	AuthenType string `json:"authen_type"`
+
+	// voucher for paid voucher internet
+	Voucher string `json:"voucher"`
+
+	// for internal using
+	Timeout int64 `json:"-" validate:"-"`
+
+	// profile id
+	Profile string `json:"-" validate:"-"`
+
+	// account update data
+	AccountName    string `json:"account_name"`
+	AccountSurName string `json:"account_surname"`
+
+	// tarriff to buy a voucher
+	Tariff string `json:"tariff"`
+
+	// payment system
+	PaymentSystem string `json:"payment_system"`
+	PaymentAmount int    `json:"payment_amount"`
+
+	// vouchers
+	Vouchers []string `json:"vouchers"`
+
+	// client locale
+	Locale string `json:"locale"`
+
+	// for voucher activation in once
+	Activate bool `json:"activate"`
+
+	//socialNetwork data
+	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
+}
+
+// PortalResponseObject struct for answer from Portal
+// backend to frontend
+type PortalResponseObject struct {
+	// status - success / error
+	Status PortalResponseStatus `json:"status,omitempty"`
+	// code 0 if OK, > 1 another
+	Code int `json:"code"`
+	// desctiption if error
+	Description string `json:"description,omitempty"`
+	// current state - authen, auth, ad, pass
+	State PortalUserState `json:"state,omitempty"`
+	// current substate - need, check
+	Substate string `json:"substate,omitempty"`
+	// additional data if needed
+	Data interface{} `json:"data,omitempty"`
+
+	// additional available data
+	Available interface{} `json:"available,omitempty"`
+	// account data provided
+	Account interface{} `json:"account,omitempty"`
+
+	// data for new auth stage
+	Data2 interface{} `json:"data2,omitempty"`
+}
