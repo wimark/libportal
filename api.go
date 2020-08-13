@@ -69,9 +69,9 @@ type APIResponse struct {
 	Errors []string    `json:"errors,omitempty"`
 }
 
-// PortalRequestObject struct for request
+// PortalBackendRequest struct for request
 // from frontend to backend
-type PortalRequestObject struct {
+type PortalBackendRequest struct {
 	// Needed client data
 	MAC  string `json:"mac" bson:"mac" form:"mac" query:"mac" validate:"required,mac"`
 	CPE  string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id" validate:"required,uuid"`
@@ -141,7 +141,7 @@ type PortalRequestObject struct {
 
 // PortalResponseObject struct for answer from Portal
 // backend to frontend
-type PortalResponseObject struct {
+type PortalBackendResponse struct {
 	// status - success / error
 	Status PortalResponseStatus `json:"status,omitempty"`
 	// code 0 if OK, > 1 another
