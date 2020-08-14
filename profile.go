@@ -26,10 +26,9 @@ type PortalClientSession struct {
 	// identity
 	MAC  string `json:"mac" bson:"mac"`
 	WLAN string `json:"wlan_id" bson:"wlan_id"`
-
-	// just info data
-	CPE string `json:"cpe" bson:"cpe"`
-	IP  string `json:"ip" bson:"ip"`
+	CPE  string `json:"cpe" bson:"cpe"`
+	NAS  string `json:"nas" bson:"nas"`
+	IP   string `json:"ip" bson:"ip"`
 
 	// link with profile and account
 	Profile string `json:"profile" bson:"profile"`

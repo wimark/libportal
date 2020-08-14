@@ -73,10 +73,11 @@ type APIResponse struct {
 // from frontend to backend
 type PortalBackendRequest struct {
 	// Needed client data
-	MAC  string `json:"mac" bson:"mac" form:"mac" query:"mac" validate:"required,mac"`
-	CPE  string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id" validate:"required,uuid"`
-	WLAN string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id" validate:"required,uuid"`
+	MAC  string `json:"mac" bson:"mac" form:"mac" query:"mac"`
+	CPE  string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id"`
+	WLAN string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id"`
 	Ip   string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
+	NAS  string `json:"nas" bson:"nas"`
 
 	// client credentials
 	Username string `json:"username,omitempty" bson:"username" form:"username" query:"username" validate:"-"`
@@ -109,12 +110,6 @@ type PortalBackendRequest struct {
 	// voucher for paid voucher internet
 	Voucher string `json:"voucher"`
 
-	// for internal using
-	Timeout int64 `json:"-" validate:"-"`
-
-	// profile id
-	Profile string `json:"-" validate:"-"`
-
 	// account update data
 	AccountName    string `json:"account_name"`
 	AccountSurName string `json:"account_surname"`
@@ -137,6 +132,11 @@ type PortalBackendRequest struct {
 
 	//socialNetwork data
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
+
+	// for internal using
+	Timeout int64 `json:"-" validate:"-"`
+	// profile id
+	Profile string `json:"-" validate:"-"`
 }
 
 // PortalBackendResponse struct for answer from Portal

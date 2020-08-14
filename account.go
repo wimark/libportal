@@ -18,13 +18,16 @@ const (
 type PortalUserAccount struct {
 	ID string `json:"id" bson:"_id"`
 
+	// identity info
 	Profile            string   `json:"profile" bson:"profile"`
 	Identity           string   `json:"identity" bson:"identity"`
 	AuthenticationCode string   `json:"authentication_code" bson:"authentication_code"`
 	MACs               []string `json:"macs" bson:"macs"`
 
-	Name              string `json:"name" bson:"name"`
-	SurName           string `json:"surname" bson:"surname"`
+	// basic personal info
+	Name    string `json:"name" bson:"name"`
+	SurName string `json:"surname" bson:"surname"`
+
 	DateOfBirth       string `json:"date_of_birth" bson:"date_of_birth"`
 	DateOfBirthStruct struct {
 		Day   int `json:"day" bson:"day"`
@@ -32,25 +35,30 @@ type PortalUserAccount struct {
 		Year  int `json:"year" bson:"year"`
 	} `json:"date_of_birth_struct" bson:"date_of_birth_struct"`
 
-	Sex string `json:"sex" bson:"sex"`
-
+	// personal info
+	Email    string `json:"email" bson:"email"`
+	Phone    string `json:"phone" bson:"phone"`
+	Sex      string `json:"sex" bson:"sex"`
 	City     string `json:"city" bson:"city"`
 	HomeTown string `json:"home_town" bson:"home_town"`
 
-	Filled bool `json:"filled" bson:"filled"`
+	// info from social network after authorizations
+	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 
+	// is filled filled bt user and acceptable for pushes from portal
+	Filled        bool `json:"filled" bson:"filled"`
 	PushAgreement bool `json:"push_agreement" bson:"push_agreement"`
 
-	Visits map[string]int `json:"visits" bson:"visits"`
-	//ids from social_network
-	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
-	Email         string                              `json:"email" bson:"email"`
-
+	// balance for paid internet
 	Balance  int    `json:"balance" bson:"balance"`
 	Currency string `json:"currency" bson:"currency"`
 
+	// creation time
 	Create   time.Time `json:"create" bson:"create"`
 	CreateAt int64     `json:"create_at" bson:"create_at"`
+
+	// common statistics
+	Visits map[string]int `json:"visits" bson:"visits"`
 }
 
 // PortalUserAccountShort for short represent account
