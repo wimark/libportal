@@ -559,9 +559,10 @@ type PortalAdStatDaily struct {
 }
 
 type PortalAdStatLog struct {
-	ID      string                  `json:"id" bson:"id"`
+	ID      string                  `json:"id" bson:"_id"`
 	IDAd    string                  `json:"id_ad" bson:"id_ad"`
 	Profile string                  `json:"profile" bson:"profile"`
+	Account string                  `json:"account" bson:"account"`
 	TypeAd  PortalAdvertisementType `json:"type_ad" bson:"type_ad"`
 
 	Timestamp int64 `json:"timestamp" bson:"timestamp"`

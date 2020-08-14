@@ -139,7 +139,7 @@ type PortalBackendRequest struct {
 	Profile string `json:"-" validate:"-"`
 }
 
-// PortalBackendResponse struct for answer from Portal
+// PortalResponseObject struct for answer from Portal
 // backend to frontend
 type PortalBackendResponse struct {
 	// status - success / error
