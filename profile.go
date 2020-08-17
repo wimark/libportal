@@ -573,10 +573,10 @@ type PortalAdStatLog struct {
 	UserDateOfBirth int64  `json:"user_date_of_birth" bson:"user_date_of_birth"`
 	UserSex         string `json:"user_sex" bson:"user_sex"`
 
-	CPE      string `json:"cpe" bson:"cpe"`
-	MAC      string `json:"mac" bson:"mac"`
-	WLAN     string `json:"wlan" bson:"wlan"`
-	AdFollow bool   `json:"ad_follow" bson:"ad_follow"`
+	CPE         string `json:"cpe" bson:"cpe"`
+	MAC         string `json:"mac" bson:"mac"`
+	WLAN        string `json:"wlan" bson:"wlan"`
+	AdFollowURL string `json:"ad_follow_url" bson:"ad_follow_url"`
 }
 
 //PortalAuthorizationWithSN авторизация с помощью социальных сетей
