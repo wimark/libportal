@@ -88,10 +88,10 @@ type PortalClientAuthentication struct {
 
 // PortalCondition struct for apply profile condition
 type PortalCondition struct {
-	// MAC   map[string]bool `json:"mac" bson:"mac"`
-	WLAN  []string `json:"wlan" bson:"wlan"`
-	CPE   []string `json:"cpe" bson:"cpe"`
-	NasID []string `json:"nas_id" bson:"nas_id"`
+	WLAN    []string `json:"wlan" bson:"wlan"`
+	CPE     []string `json:"cpe" bson:"cpe"`
+	NasID   []string `json:"nas_id" bson:"nas_id"`
+	GroupID []string `json:"group_id" bson:""group_id`
 }
 
 // Empty func to check struct for empty
@@ -494,6 +494,8 @@ type PortalAd struct {
 		Age  int64  `json:"age" bson:"age"`
 		City string `json:"city" bson:"city"`
 	} `json:"user_rotation" bson:"user_rotation"`
+
+	GroupIDs []string `json:"group_ids" bson:"group_ids"`
 
 	Data PortalAdData `json:"data" bson:"data"`
 }
