@@ -426,6 +426,10 @@ type PortalAdData struct {
 
 	// поля означаюзие включен ли опрос данных о пользователя
 	PollFields PollEnabledFields `json:"poll_fields" bson:"poll_fields"`
+
+	// поля для цвета кнопки и текста кнопки
+	RedirectButtonColor string `json:"redirect_button_color" bson:"redirect_button_color"`
+	RedirectButtonText  string `json:"redirect_button_text" bson:"redirect_button_text"`
 }
 
 // PortalAd object for ihot
