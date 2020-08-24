@@ -425,7 +425,7 @@ type PortalAdData struct {
 	ThemeColor string `json:"theme_color" bson:"theme_color"`
 
 	// поля означаюзие включен ли опрос данных о пользователя
-	PollFields PollEnabledFields
+	PollFields PollEnabledFields `json:"poll_fields" bson:"poll_fields"`
 
 	// поля для цвета кнопки и текста кнопки
 	RedirectButtonColor string `json:"redirect_button_color" bson:"redirect_button_color"`
