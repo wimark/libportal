@@ -427,6 +427,10 @@ type PortalAdData struct {
 
 	// поля означаюзие включен ли опрос данных о пользователя
 	PollFields PollEnabledFields `json:"poll_fields" bson:"poll_fields"`
+
+	// поля для цвета кнопки и текста кнопки
+	RedirectButtonColor string `json:"redirect_button_color" bson:"redirect_button_color"`
+	RedirectButtonText  string `json:"redirect_button_text" bson:"redirect_button_text"`
 }
 
 // PortalAd object for ihot
@@ -568,7 +572,13 @@ type PortalAdStatLog struct {
 	Account string                  `json:"account" bson:"account"`
 	TypeAd  PortalAdvertisementType `json:"type_ad" bson:"type_ad"`
 
-	Timestamp int64 `json:"timestamp" bson:"timestamp"`
+	CreateAt int64 `json:"create_at" bson:"create_at"`
+
+	Time struct {
+		Day   int `json:"day" bson:"day"`
+		Month int `json:"month" bson:"month"`
+		Year  int `json:"year" bson:"year"`
+	} `json:"time" bson:"time"`
 
 	UA UserAgent `json:"ua" bson:"ua"`
 
@@ -576,10 +586,11 @@ type PortalAdStatLog struct {
 	UserDateOfBirth int64  `json:"user_date_of_birth" bson:"user_date_of_birth"`
 	UserSex         string `json:"user_sex" bson:"user_sex"`
 
-	CPE      string `json:"cpe" bson:"cpe"`
-	MAC      string `json:"mac" bson:"mac"`
-	WLAN     string `json:"wlan" bson:"wlan"`
-	AdFollow bool   `json:"ad_follow" bson:"ad_follow"`
+	CPE         string `json:"cpe" bson:"cpe"`
+	MAC         string `json:"mac" bson:"mac"`
+	WLAN        string `json:"wlan" bson:"wlan"`
+	NASID       string `json:"nas_id" bson:"nas_id"`
+	AdFollowURL string `json:"ad_follow_url" bson:"ad_follow_url"`
 }
 
 //PortalAuthorizationWithSN авторизация с помощью социальных сетей
