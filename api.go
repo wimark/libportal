@@ -24,6 +24,9 @@ type APIRequest struct {
 	// tariffs ids for vouchers if needed
 	Tariffs []string `json:"tariffs,omitempty" query:"tariffs[]"`
 
+	// locations ids to request
+	LocIDs []string `json:"loc_ids,omitempty" query:"loc_ids[]"`
+
 	//AdType  type of ad to download
 	AdTypes []string `json:"ad_types" query:"ad_types[]"`
 
