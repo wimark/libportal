@@ -34,6 +34,7 @@ type DayTime struct {
 // PortalClientLog for logging every user state (index should be for 1 month)
 type PortalClientLog struct {
 	Profile   string    `json:"profile" bson:"profile"`
+	LocID     string    `json:"loc_id" bson:"loc_id"`
 	MAC       string    `json:"mac" bson:"mac"`
 	Identity  string    `json:"identity,omitempty" bson:"identity,omitempty"`
 	Account   string    `json:"account,omitempty" bson:"account"`
@@ -50,6 +51,7 @@ type PortalClientLog struct {
 // PortalClientStat for stats portal passed users
 type PortalClientStat struct {
 	Profile  string `json:"profile" bson:"profile"`
+	LocID    string `json:"loc_id" bson:"loc_id"`
 	MAC      string `json:"mac" bson:"mac"`
 	Identity string `json:"identity,omitempty" bson:"identity,omitempty"`
 	Account  string `json:"account,omitempty" bson:"account"`
@@ -74,6 +76,7 @@ type DailyProfileStat struct {
 	Time     DayTime   `json:"time" bson:"time"`
 
 	Profile string   `json:"profile" bson:"profile"`
+	LocID   string   `json:"loc_id" bson:"loc_id"`
 	Values  []string `json:"values" bson:"values"`
 	Counts  []int    `json:"counts" bson:"counts"`
 }
@@ -85,7 +88,7 @@ type DailyProfileStatDB struct {
 }
 
 // NewDailyProfileStat func return new object DailyProfileStat
-func NewDailyProfileStatDBYesterday(t time.Time, profile string,
+func NewDailyProfileStatDBYesterday(t time.Time, profile, loc string,
 	values []string, counts []int) DailyProfileStatDB {
 	var tYesterday = t.AddDate(0, 0, -1)
 	var year, month, day = tYesterday.Year(), int(tYesterday.Month()), tYesterday.Day()
@@ -100,6 +103,7 @@ func NewDailyProfileStatDBYesterday(t time.Time, profile string,
 				Day:   day,
 			},
 			Profile: profile,
+			LocID:   loc,
 			Values:  values,
 			Counts:  counts,
 		},

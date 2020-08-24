@@ -1,6 +1,16 @@
 package libportal
 
 const CollAdStatLog = "portal_ads_stat_log"
+
+const (
+	CollPortalUserAccount      = "portal_user_accounts"
+	CollPortalUserVoucher      = "portal_user_voucher"
+	CollPortalUserHotelVoucher = "portal_user_hotel_voucher"
+	CollPortalPaidPlans        = "portal_paid_plans"
+	CollPortalPaymentSys       = "portal_payment_system"
+	CollPortalTransactions     = "portal_transactions"
+)
+
 const (
 	// user clients
 	COLL_PORTAL_COLLECTION = "portal_client_sessions"

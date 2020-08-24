@@ -74,8 +74,9 @@ type PortalClientAuthentication struct {
 	Id string `json:"id" bson:"_id"`
 
 	// client identification
-	MAC  string `json:"mac" bson:"mac"`
-	WLAN string `json:"wlan_id" bson:"wlan_id"`
+	Profile string `json:"profile" bson:"profile"`
+	MAC     string `json:"mac" bson:"mac"`
+	WLAN    string `json:"wlan_id" bson:"wlan_id"`
 
 	// data with identity and authentication info
 	Data PortalAuthenticationData `json:"data" bson:"data"`
@@ -97,7 +98,7 @@ type PortalCondition struct {
 
 // Empty func to check struct for empty
 func (pc *PortalCondition) Empty() bool {
-	return len(pc.WLAN) == 0 && len(pc.CPE) == 0 && len(pc.NasID) == 0
+	return len(pc.WLAN) == 0 && len(pc.CPE) == 0 && len(pc.NasID) == 0 && len(pc.LocID) == 0
 }
 
 // PortalSessionConfig struct for flexible session config
@@ -121,7 +122,7 @@ type PortalSessionConfig struct {
 	// max number
 	MaxSessions int `json:"max_sessions" bson:"max_sessions"`
 
-	// Deprecated field for block timeout
+	// DEPRECATED field for block timeout
 	BlockTimeout int64 `json:"block_timeout" bson:"block_timeout"`
 }
 
@@ -249,6 +250,7 @@ type PortalAuthorizationConfig struct {
 	//SocialNetworkConfig SN auth setting
 	SocialNetworkConfig PortalAuthorizationWithSN `json:"social_network_config" bson:"social_network_config"`
 
+	// skip final page (with data about how much to internet)
 	SkipFinalPage bool `json:"skip_final_page" bson:"skip_final_page"`
 }
 
@@ -508,6 +510,7 @@ type PortalAd struct {
 type PortalAdStatRequest struct {
 	Id            string `json:"id"`
 	Profile       string `json:"profile"`
+	LocID         string `json:"loc_id"`
 	Authorization string `json:"authorization"`
 
 	Duration          int64                    `json:"duration"`
@@ -548,6 +551,7 @@ type PortalAdStatDaily struct {
 
 	// more specific data to link with profiles and authorization
 	Profile       string `json:"profile" bson:"profile"`
+	LocID         string `json:"loc_id"`
 	Authorization string `json:"authorization" bson:"authorization"`
 
 	// dat of day
@@ -569,6 +573,7 @@ type PortalAdStatLog struct {
 	ID      string                  `json:"id" bson:"_id"`
 	IDAd    string                  `json:"id_ad" bson:"id_ad"`
 	Profile string                  `json:"profile" bson:"profile"`
+	LocID   string                  `json:"loc_id"`
 	Account string                  `json:"account" bson:"account"`
 	TypeAd  PortalAdvertisementType `json:"type_ad" bson:"type_ad"`
 

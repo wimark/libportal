@@ -5,15 +5,6 @@ import (
 	"time"
 )
 
-const (
-	CollPortalUserAccount      = "portal_user_accounts"
-	CollPortalUserVoucher      = "portal_user_voucher"
-	CollPortalUserHotelVoucher = "portal_user_hotel_voucher"
-	CollPortalPaidPlans        = "portal_paid_plans"
-	CollPortalPaymentSys       = "portal_payment_system"
-	CollPortalTransactions     = "portal_transactions"
-)
-
 // PortalUserAccount struct to represent user account for Profile
 type PortalUserAccount struct {
 	ID string `json:"id" bson:"_id"`
@@ -41,6 +32,10 @@ type PortalUserAccount struct {
 	Sex      string `json:"sex" bson:"sex"`
 	City     string `json:"city" bson:"city"`
 	HomeTown string `json:"home_town" bson:"home_town"`
+
+	// data for external addintional use
+	Passport       string      `json:"passport" bson:"passport"`
+	AdditionalData interface{} `json:"additional_data" bson:"addition_data"`
 
 	// info from social network after authorizations
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
