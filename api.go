@@ -73,12 +73,12 @@ type APIResponse struct {
 // from frontend to backend
 type PortalBackendRequest struct {
 	// Needed client data
-	MAC     string `json:"mac" bson:"mac" form:"mac" query:"mac"`
-	CPE     string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id"`
-	WLAN    string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id"`
-	Ip      string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
-	NAS     string `json:"nas" bson:"nas"`
-	GroupID string `json:"group_id" bson:"group_id"`
+	MAC   string `json:"mac" bson:"mac" form:"mac" query:"mac"`
+	CPE   string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id"`
+	WLAN  string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id"`
+	Ip    string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
+	NAS   string `json:"nas" bson:"nas"`
+	LocID string `json:"loc_id" bson:"loc_id"`
 
 	// client credentials
 	Username string `json:"username,omitempty" bson:"username" form:"username" query:"username" validate:"-"`

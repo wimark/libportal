@@ -24,11 +24,12 @@ type PortalClientSession struct {
 	ID string `json:"id" bson:"_id"`
 
 	// identity
-	MAC  string `json:"mac" bson:"mac"`
-	WLAN string `json:"wlan_id" bson:"wlan_id"`
-	CPE  string `json:"cpe" bson:"cpe"`
-	NAS  string `json:"nas" bson:"nas"`
-	IP   string `json:"ip" bson:"ip"`
+	MAC   string `json:"mac" bson:"mac"`
+	WLAN  string `json:"wlan_id" bson:"wlan_id"`
+	CPE   string `json:"cpe" bson:"cpe"`
+	NAS   string `json:"nas" bson:"nas"`
+	LocID string `json:"loc_id" bson:"loc_id"`
+	IP    string `json:"ip" bson:"ip"`
 
 	// link with profile and account
 	Profile string `json:"profile" bson:"profile"`
@@ -88,10 +89,10 @@ type PortalClientAuthentication struct {
 
 // PortalCondition struct for apply profile condition
 type PortalCondition struct {
-	WLAN    []string `json:"wlan" bson:"wlan"`
-	CPE     []string `json:"cpe" bson:"cpe"`
-	NasID   []string `json:"nas_id" bson:"nas_id"`
-	GroupID []string `json:"group_id" bson:""group_id`
+	WLAN  []string `json:"wlan" bson:"wlan"`
+	CPE   []string `json:"cpe" bson:"cpe"`
+	NasID []string `json:"nas_id" bson:"nas_id"`
+	LocID []string `json:"loc_id" bson:"loc_id"`
 }
 
 // Empty func to check struct for empty
@@ -495,7 +496,7 @@ type PortalAd struct {
 		City string `json:"city" bson:"city"`
 	} `json:"user_rotation" bson:"user_rotation"`
 
-	GroupIDs []string `json:"group_ids" bson:"group_ids"`
+	LocIDs []string `json:"loc_ids" bson:"loc_ids"`
 
 	Data PortalAdData `json:"data" bson:"data"`
 }
