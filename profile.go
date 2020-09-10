@@ -387,6 +387,14 @@ type PortalPageProfile struct {
 	Support string `json:"support" bson:"support"`
 }
 
+// PortalPageSchedule for schedule of page_id to be on loc_id URL
+type PortalPageSchedule struct {
+	ID       string   `json:"id" bson:"_id"`
+	PageID   string   `json:"page_id" bson:"page_id"`
+	LocID    string   `json:"loc_id" bson:"loc_id"`
+	Schedule Schedule `json:"schedule" bson:"schedule"`
+}
+
 type AdImageObject struct {
 	Text  string `json:"text" bson:"text"`
 	Image string `json:"image" bson:"image"`
@@ -465,26 +473,7 @@ type PortalAd struct {
 	} `json:"platform" bson:"platform"`
 
 	// schedule of ads to work start-stop and number of views to show
-	Schedule struct {
-		Start     int64 `json:"start" bson:"start"`
-		Stop      int64 `json:"stop" bson:"stop"`
-		Views     int   `json:"views" bson:"views"`
-		TimeOfDay struct {
-			Morning   bool `json:"morning" bson:"morning"`
-			Afternoon bool `json:"afternoon" bson:"afternoon"`
-			Evening   bool `json:"evening" bson:"evening"`
-			Night     bool `json:"night" bson:"night"`
-		} `json:"time_of_day" bson:"time_of_day"`
-		DayOfWeek struct {
-			Monday    bool `json:"monday" bson:"monday"`
-			Tuesday   bool `json:"tuesday" bson:"tuesday"`
-			Wednesday bool `json:"wednesday" bson:"wednesday"`
-			Thursday  bool `json:"thursday" bson:"thursday"`
-			Friday    bool `json:"friday" bson:"friday"`
-			Saturday  bool `json:"saturday" bson:"saturday"`
-			Sunday    bool `json:"sunday" bson:"sunday"`
-		} `json:"day_of_week" bson:"day_of_week"`
-	} `json:"schedule" bson:"schedule"`
+	Schedule Schedule `json:"schedule" bson:"schedule"`
 
 	NumberOfVisits struct {
 		Visits int            `json:"visits" bson:"visits"`
