@@ -1,9 +1,8 @@
-package libportal
+package libwimark
 
 import (
 	"encoding/json"
 	"errors"
-
 	"github.com/globalsign/mgo/bson"
 )
 
@@ -1195,6 +1194,144 @@ func (self *PortalPaymentSystemType) SetBSON(v bson.Raw) error {
 		return nil
 	}
 	return errors.New("Unknown PortalPaymentSystemType: " + s)
+}
+
+type PortalReportObjectType string
+
+const PortalReportObjectTypeAdAndPollsReport PortalReportObjectType = "ad_and_polls"
+const PortalReportObjectTypeClientsReport PortalReportObjectType = "clients"
+const PortalReportObjectTypeDateOfBirthReport PortalReportObjectType = "date_of_birth"
+const PortalReportObjectTypeNone PortalReportObjectType = "none"
+const PortalReportObjectTypeSessionReport PortalReportObjectType = "session"
+const PortalReportObjectTypeStatReport PortalReportObjectType = "stat"
+
+func (self PortalReportObjectType) GetPtr() *PortalReportObjectType { var v = self; return &v }
+
+func (self PortalReportObjectType) String() string {
+	switch self {
+	case PortalReportObjectTypeAdAndPollsReport:
+		return "ad_and_polls"
+	case PortalReportObjectTypeClientsReport:
+		return "clients"
+	case PortalReportObjectTypeDateOfBirthReport:
+		return "date_of_birth"
+	case PortalReportObjectTypeNone:
+		return "none"
+	case PortalReportObjectTypeSessionReport:
+		return "session"
+	case PortalReportObjectTypeStatReport:
+		return "stat"
+	}
+	if len(self) == 0 {
+		return "none"
+	}
+	panic(errors.New("Invalid value of PortalReportObjectType: " + string(self)))
+}
+
+func (self *PortalReportObjectType) MarshalJSON() ([]byte, error) {
+	switch *self {
+	case PortalReportObjectTypeAdAndPollsReport:
+		return json.Marshal("ad_and_polls")
+	case PortalReportObjectTypeClientsReport:
+		return json.Marshal("clients")
+	case PortalReportObjectTypeDateOfBirthReport:
+		return json.Marshal("date_of_birth")
+	case PortalReportObjectTypeNone:
+		return json.Marshal("none")
+	case PortalReportObjectTypeSessionReport:
+		return json.Marshal("session")
+	case PortalReportObjectTypeStatReport:
+		return json.Marshal("stat")
+	}
+	if len(*self) == 0 {
+		return json.Marshal("none")
+	}
+	return nil, errors.New("Invalid value of PortalReportObjectType: " + string(*self))
+}
+
+func (self *PortalReportObjectType) GetBSON() (interface{}, error) {
+	switch *self {
+	case PortalReportObjectTypeAdAndPollsReport:
+		return "ad_and_polls", nil
+	case PortalReportObjectTypeClientsReport:
+		return "clients", nil
+	case PortalReportObjectTypeDateOfBirthReport:
+		return "date_of_birth", nil
+	case PortalReportObjectTypeNone:
+		return "none", nil
+	case PortalReportObjectTypeSessionReport:
+		return "session", nil
+	case PortalReportObjectTypeStatReport:
+		return "stat", nil
+	}
+	if len(*self) == 0 {
+		return "none", nil
+	}
+	return nil, errors.New("Invalid value of PortalReportObjectType: " + string(*self))
+}
+
+func (self *PortalReportObjectType) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "ad_and_polls":
+		*self = PortalReportObjectTypeAdAndPollsReport
+		return nil
+	case "clients":
+		*self = PortalReportObjectTypeClientsReport
+		return nil
+	case "date_of_birth":
+		*self = PortalReportObjectTypeDateOfBirthReport
+		return nil
+	case "none":
+		*self = PortalReportObjectTypeNone
+		return nil
+	case "session":
+		*self = PortalReportObjectTypeSessionReport
+		return nil
+	case "stat":
+		*self = PortalReportObjectTypeStatReport
+		return nil
+	}
+	if len(s) == 0 {
+		*self = PortalReportObjectTypeNone
+		return nil
+	}
+	return errors.New("Unknown PortalReportObjectType: " + s)
+}
+
+func (self *PortalReportObjectType) SetBSON(v bson.Raw) error {
+	var s string
+	if err := v.Unmarshal(&s); err != nil {
+		return err
+	}
+	switch s {
+	case "ad_and_polls":
+		*self = PortalReportObjectTypeAdAndPollsReport
+		return nil
+	case "clients":
+		*self = PortalReportObjectTypeClientsReport
+		return nil
+	case "date_of_birth":
+		*self = PortalReportObjectTypeDateOfBirthReport
+		return nil
+	case "none":
+		*self = PortalReportObjectTypeNone
+		return nil
+	case "session":
+		*self = PortalReportObjectTypeSessionReport
+		return nil
+	case "stat":
+		*self = PortalReportObjectTypeStatReport
+		return nil
+	}
+	if len(s) == 0 {
+		*self = PortalReportObjectTypeNone
+		return nil
+	}
+	return errors.New("Unknown PortalReportObjectType: " + s)
 }
 
 type PortalResponseStatus string

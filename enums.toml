@@ -105,3 +105,13 @@ AddToBlackList = "add_bl"
 DelFromBlackList = "del_bl"
 GetBlackList = "get_bl"
 GetAccessList = "get_al"
+
+[PortalReportObjectType]
+default = "None"
+[PortalReportObjectType.variants]
+None        = "none"
+AdAndPollsReport = "ad_and_polls"
+DateOfBirthReport = "date_of_birth"
+ClientsReport = "clients"
+SessionReport = "session"
+StatReport = "stat"
