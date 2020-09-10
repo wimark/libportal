@@ -1,4 +1,4 @@
-package libwimark
+package libportal
 
 import (
 	"encoding/json"
