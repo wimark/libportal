@@ -391,6 +391,7 @@ type PortalPageProfile struct {
 type PortalPageSchedule struct {
 	ID       string   `json:"id" bson:"_id"`
 	PageID   string   `json:"page_id" bson:"page_id"`
+	PageURL  string   `json:"page_url" bson:"page_url"`
 	LocID    string   `json:"loc_id" bson:"loc_id"`
 	Schedule Schedule `json:"schedule" bson:"schedule"`
 }
