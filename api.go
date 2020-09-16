@@ -82,6 +82,7 @@ type PortalBackendRequest struct {
 	Ip    string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
 	NAS   string `json:"nas" bson:"nas"`
 	LocID string `json:"loc_id" bson:"loc_id"`
+	Hash  string `json:"hash" bson:"hash"`
 
 	// client credentials
 	Username string `json:"username,omitempty" bson:"username" form:"username" query:"username" validate:"-"`
@@ -136,6 +137,9 @@ type PortalBackendRequest struct {
 
 	//socialNetwork data
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
+
+	// segment for knowing where from this user is
+	Segment string `json:"segment" bson:"segment"`
 
 	// for internal using
 	Timeout int64 `json:"-" validate:"-"`

@@ -24,12 +24,14 @@ type PortalClientSession struct {
 	ID string `json:"id" bson:"_id"`
 
 	// identity
-	MAC   string `json:"mac" bson:"mac"`
-	WLAN  string `json:"wlan_id" bson:"wlan_id"`
-	CPE   string `json:"cpe" bson:"cpe"`
-	NAS   string `json:"nas" bson:"nas"`
-	LocID string `json:"loc_id" bson:"loc_id"`
-	IP    string `json:"ip" bson:"ip"`
+	MAC     string `json:"mac" bson:"mac"`
+	WLAN    string `json:"wlan_id" bson:"wlan_id"`
+	CPE     string `json:"cpe" bson:"cpe"`
+	NAS     string `json:"nas" bson:"nas"`
+	LocID   string `json:"loc_id" bson:"loc_id"`
+	IP      string `json:"ip" bson:"ip"`
+	Hash    string `json:"hash" bson:"hash"`
+	Segment string `json:"segment" bson:"segment"`
 
 	// link with profile and account
 	Profile string `json:"profile" bson:"profile"`
