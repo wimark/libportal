@@ -103,6 +103,14 @@ func (pc *PortalCondition) Empty() bool {
 	return len(pc.WLAN) == 0 && len(pc.CPE) == 0 && len(pc.NasID) == 0 && len(pc.LocID) == 0
 }
 
+// PortalConditionRequest request for condition of profile
+type PortalConditionRequest struct {
+	WLAN  string `json:"wlan,omitempty" bson:"wlan"`
+	CPE   string `json:"cpe,omitempty" bson:"cpe"`
+	NasID string `json:"nas_id,omitempty" bson:"nas_id"`
+	LocID string `json:"loc_id,omitempty" bson:"loc_id"`
+}
+
 // PortalSessionConfig struct for flexible session config
 type PortalSessionConfig struct {
 
@@ -324,6 +332,8 @@ type PortalProfile struct {
 		OTP     string `json:"otp" bson:"otp"`
 		Voucher string `json:"voucher" bson:"voucher"`
 	} `json:"push_text" bson:"push_text"`
+
+	RandomMACBlockPage bool `json:"random_mac_block_page" bson:"random_mac_block_page"`
 }
 
 func (p *PortalProfile) SortAd() {
