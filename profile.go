@@ -382,6 +382,7 @@ type PortalPageProfile struct {
 		Color pageColor `json:"color" bson:"color"`
 
 		// color themes (new 1.3)
+		Theme      string `json:"theme" bson:"theme"`
 		ThemeType  string `json:"theme_type" bson:"theme_type"`
 		ThemeColor string `json:"theme_color" bson:"theme_color"`
 	} `json:"interface" bson:"interface"`
