@@ -7,11 +7,6 @@ type APIRequest struct {
 	// ids for onject query
 	Ids []string `json:"ids" query:"ids[]"`
 
-	// Pagination
-	Sort   string `json:"sort" query:"sort"`
-	Offset int    `json:"offset" query:"offset"`
-	Limit  int    `json:"limit" query:"limit"`
-
 	// for Search
 	SearchQuery string `json:"search,omitempty" query:"search"`
 
@@ -45,30 +40,34 @@ type APIRequest struct {
 	Month int `json:"month" query:"month"`
 	Year  int `json:"year" query:"year"`
 
-	LengthVoucher int `json:"length_voucher" query:"length_voucher"`
-	// if true, get return list code and start stop(about vouchers)
-	ListVoucher bool `json:"list_voucher" query:"list_voucher"`
-
-	NumberOfVouchers int `json:"number_of_vouchers" query:"number_of_vouchers"`
 	// for transaction read -- possible values ["day", "week", "month", "quarter"]
 	Last string `json:"last,omitempty" query:"last"`
-
-	ClonePage bool `json:"clone_page" query:"clone_page"`
-
-	MACMask bool `json:"mac_mask" query:"mac_mask"`
 
 	Query string `json:"q" query:"q"`
 
 	Request []map[string]interface{} `json:"request" query:"request" form:"request"`
+
+	// Pagination
+	Sort   string `json:"sort" query:"sort"`
+	Offset int    `json:"offset" query:"offset"`
+	Limit  int    `json:"limit" query:"limit"`
+
+	// vouchers data
+	NumberOfVouchers int `json:"number_of_vouchers" query:"number_of_vouchers"`
+	LengthVoucher    int `json:"length_voucher" query:"length_voucher"`
+
+	// if true, get return list code and start stop(about vouchers)
+	ListVoucher bool `json:"list_voucher" query:"list_voucher"`
+	ClonePage   bool `json:"clone_page" query:"clone_page"`
+	MACMask     bool `json:"mac_mask" query:"mac_mask"`
 }
 
 // APIResponse struct for common response
 type APIResponse struct {
-	Status string `json:"status"`
-	Code   int    `json:"code"`
-
-	Items  interface{} `json:"data,omitempty"`
+	Code   int         `json:"code"`
+	Status string      `json:"status"`
 	Total  int         `json:"total,omitempty"`
+	Items  interface{} `json:"data,omitempty"`
 	Errors []string    `json:"errors,omitempty"`
 }
 
@@ -96,9 +95,6 @@ type PortalBackendRequest struct {
 
 	// Remember period for user accounts
 	Remember int64 `json:"remember"`
-
-	// push aggrement
-	PushAgreement bool `json:"push_agree"`
 
 	// Type of choosen type
 	Type string `json:"type"`
@@ -132,9 +128,6 @@ type PortalBackendRequest struct {
 	// client locale
 	Locale string `json:"locale"`
 
-	// for voucher activation in once
-	Activate bool `json:"activate"`
-
 	//socialNetwork data
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 
@@ -145,6 +138,12 @@ type PortalBackendRequest struct {
 	Timeout int64 `json:"-" validate:"-"`
 	// profile id
 	Profile string `json:"-" validate:"-"`
+
+	// push aggrement
+	PushAgreement bool `json:"push_agree"`
+
+	// for voucher activation in once
+	Activate bool `json:"activate"`
 }
 
 // PortalResponseObject struct for answer from Portal

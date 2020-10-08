@@ -55,10 +55,12 @@ func (s *Schedule) At(ct int64) bool {
 
 // atWeekday to check is weekday by mask
 func (s *Schedule) atWeekday(weekday int) bool {
-	return s.DoWMask == 0 || (s.DoWMask&int(1<<(weekday%7))) > 0
+	w := uint32(weekday)
+	return s.DoWMask == 0 || (s.DoWMask&int(1<<(w%7))) > 0
 }
 
 // atHour to check is hour by mask
 func (s *Schedule) atHour(hour int) bool {
-	return s.HourMask == 0 || (s.HourMask&1<<(hour%24)) > 0
+	h := uint32(hour)
+	return s.HourMask == 0 || (s.HourMask&1<<(h%24)) > 0
 }

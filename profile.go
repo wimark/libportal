@@ -429,10 +429,8 @@ type PortalAdData struct {
 	Question     string          `json:"question" bson:"question"`
 	QuestionDesc string          `json:"question_desc" bson:"question_desc"`
 	PollVariants []string        `json:"poll_variants" bson:"poll_variants"`
-	SelfVariant  bool            `json:"self_variant" bson:"self_variant"`
 	PollImage    []AdImageObject `json:"poll_image" bson:"poll_image"`
 
-	Skip         bool  `json:"skip" bson:"skip"`
 	Duration     int64 `json:"duration" bson:"duration"`
 	SkipDuration int64 `json:"skip_after" bson:"skip_after"`
 
@@ -449,12 +447,15 @@ type PortalAdData struct {
 	ThemeType  string `json:"theme_type" bson:"theme_type"`
 	ThemeColor string `json:"theme_color" bson:"theme_color"`
 
-	// поля означаюзие включен ли опрос данных о пользователя
-	PollFields PollEnabledFields `json:"poll_fields" bson:"poll_fields"`
-
 	// поля для цвета кнопки и текста кнопки
 	RedirectButtonColor string `json:"redirect_button_color" bson:"redirect_button_color"`
 	RedirectButtonText  string `json:"redirect_button_text" bson:"redirect_button_text"`
+
+	SelfVariant bool `json:"self_variant" bson:"self_variant"`
+	Skip        bool `json:"skip" bson:"skip"`
+
+	// поля означаюзие включен ли опрос данных о пользователя
+	PollFields PollEnabledFields `json:"poll_fields" bson:"poll_fields"`
 }
 
 // PortalAd object for ihot

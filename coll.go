@@ -33,9 +33,9 @@ const (
 	COLL_PORTAL_ADS_STATS       = "portal_ads_stats"
 	COLl_PORTAL_ADS_STATS_DAILY = "portal_ads_stats_daily"
 
-	// futher accounts
+	// further accounts
 	COLL_PORTAL_USER_ACCOUNTS = "portal_user_accounts"
 
-	// futher vouchers
+	// further vouchers
 	COLL_PORTAL_VOUCHERS = "portal_vouchers"
 )

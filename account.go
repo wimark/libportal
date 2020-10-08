@@ -123,14 +123,18 @@ type PortalTariffPlan struct {
 	CreateAt int64     `json:"create_at" bson:"create_at"`
 }
 
-const letterBytes = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const (
+	letterBytes           = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	voucherMinLength      = 6
+	hotelVoucherMinLength = 4
+)
 
 // GenerateVoucher function to generate unique
 // alphanumeric voucher code with provided len.
 // Example: GenerateVoucher(6) -> a1b-2c3
 func GenerateVoucher(length int) string {
-	if length < 6 {
-		length = 6
+	if length < voucherMinLength {
+		length = voucherMinLength
 	}
 
 	b := make([]byte, length)
@@ -145,8 +149,8 @@ func GenerateVoucher(length int) string {
 // alphanumeric voucher code with provided len.
 // Example: GenerateVoucher(6) -> a1b-2c3
 func GenerateHotelVoucher(length int) string {
-	if length < 4 {
-		length = 4
+	if length < hotelVoucherMinLength {
+		length = hotelVoucherMinLength
 	}
 
 	b := make([]byte, length)
