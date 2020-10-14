@@ -1,5 +1,9 @@
 # libportal changelog 
 
+## Current 
+
+- WNE-2000: Add: user photo to account (f8e3fbf)
+
 ## [v1.5.0]
 
  - WNE-1975: Improve: golangci-lint issues (29750a0)

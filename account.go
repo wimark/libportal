@@ -32,6 +32,7 @@ type PortalUserAccount struct {
 	Sex      string `json:"sex" bson:"sex"`
 	City     string `json:"city" bson:"city"`
 	HomeTown string `json:"home_town" bson:"home_town"`
+	PhotoURL string `json:"photo_url" bson:"photo_url"`
 
 	// data for external addintional use
 	Passport       string      `json:"passport" bson:"passport"`
@@ -217,6 +218,7 @@ type AccountFromSocialNetwork struct {
 	City         string   `json:"city" bson:"city"`
 	Universities []string `json:"universities" bson:"universities"`
 	HomeTown     string   `json:"home_town" bson:"home_town"`
+	PhotoURL     string   `json:"photo_url" bson:"photo_url"`
 }
 
 // PortalUserHotelVoucher struct to represent voucher
