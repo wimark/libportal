@@ -508,6 +508,7 @@ func (self *PortalAuthenticationState) SetBSON(v bson.Raw) error {
 
 type PortalAuthenticationType string
 
+const PortalAuthenticationTypeCallFront PortalAuthenticationType = "callfront"
 const PortalAuthenticationTypeCallback PortalAuthenticationType = "callback"
 const PortalAuthenticationTypeESIA PortalAuthenticationType = "esia"
 const PortalAuthenticationTypeEmail PortalAuthenticationType = "email"
@@ -521,6 +522,8 @@ func (self PortalAuthenticationType) GetPtr() *PortalAuthenticationType { var v 
 
 func (self PortalAuthenticationType) String() string {
 	switch self {
+	case PortalAuthenticationTypeCallFront:
+		return "callfront"
 	case PortalAuthenticationTypeCallback:
 		return "callback"
 	case PortalAuthenticationTypeESIA:
@@ -546,6 +549,8 @@ func (self PortalAuthenticationType) String() string {
 
 func (self *PortalAuthenticationType) MarshalJSON() ([]byte, error) {
 	switch *self {
+	case PortalAuthenticationTypeCallFront:
+		return json.Marshal("callfront")
 	case PortalAuthenticationTypeCallback:
 		return json.Marshal("callback")
 	case PortalAuthenticationTypeESIA:
@@ -571,6 +576,8 @@ func (self *PortalAuthenticationType) MarshalJSON() ([]byte, error) {
 
 func (self *PortalAuthenticationType) GetBSON() (interface{}, error) {
 	switch *self {
+	case PortalAuthenticationTypeCallFront:
+		return "callfront", nil
 	case PortalAuthenticationTypeCallback:
 		return "callback", nil
 	case PortalAuthenticationTypeESIA:
@@ -600,6 +607,9 @@ func (self *PortalAuthenticationType) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	switch s {
+	case "callfront":
+		*self = PortalAuthenticationTypeCallFront
+		return nil
 	case "callback":
 		*self = PortalAuthenticationTypeCallback
 		return nil
@@ -638,6 +648,9 @@ func (self *PortalAuthenticationType) SetBSON(v bson.Raw) error {
 		return err
 	}
 	switch s {
+	case "callfront":
+		*self = PortalAuthenticationTypeCallFront
+		return nil
 	case "callback":
 		*self = PortalAuthenticationTypeCallback
 		return nil
