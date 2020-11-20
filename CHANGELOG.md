@@ -2,6 +2,7 @@
 
 ## Current 
 
+- WNE-2019: Add: Callfront as authN type (e0490a1)
 - WNE-2000: Add: user photo to account (f8e3fbf)
 
 ## [v1.5.0]
