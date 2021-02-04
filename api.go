@@ -144,6 +144,9 @@ type PortalBackendRequest struct {
 
 	// for voucher activation in once
 	Activate bool `json:"activate"`
+
+	// is CNA (Captive network Assistant)
+	CNA bool `json:"cna"`
 }
 
 // PortalResponseObject struct for answer from Portal
