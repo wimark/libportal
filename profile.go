@@ -288,13 +288,15 @@ type PortalProfile struct {
 	Condition PortalCondition `json:"condition" bson:"condition"`
 
 	// authentication types
-	Authentications []PortalAuthenticationConfig `json:"authentications" bson:"authentications"`
+	Authentications    []PortalAuthenticationConfig `json:"authentications" bson:"authentications"`
+	AuthenticationSkip bool                         `json:"authn_skip" bson:"authn_skip"`
 
 	// available MSISDN prefixes --
 	MSISDNConfig PortalMSISDNConfig `json:"msisdn_config" bson:"msisdn_config"`
 
 	// authorization types
-	Authorizations []PortalAuthorizationConfig `json:"authorizations" bson:"authorizations"`
+	Authorizations       []PortalAuthorizationConfig `json:"authorizations" bson:"authorizations"`
+	AuthorizationDefault string                      `json:"authz_default" bson:"authz_default"`
 
 	// limits for authens and auths per page
 	AuthenticationLimit int `json:"authentication_limit" bson:"authentication_limit"`
@@ -333,6 +335,7 @@ type PortalProfile struct {
 		Voucher string `json:"voucher" bson:"voucher"`
 	} `json:"push_text" bson:"push_text"`
 
+	// Block page for Random (Local Assigned) MAC Addresses
 	RandomMACBlockPage bool `json:"random_mac_block_page" bson:"random_mac_block_page"`
 }
 
