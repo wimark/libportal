@@ -116,3 +116,11 @@ DateOfBirthReport = "date_of_birth"
 ClientsReport = "clients"
 SessionReport = "session"
 StatReport = "stat"
+
+[AccessServerType]
+default = "Wimark"
+[AccessServerType.variants]
+"Wimark"   = "Wimark"
+"CiscoWLC" = "Cisco WLC"
+"CiscoISG" = "Cisco ISG"
+"CoovaChilly" = "CoovaChilli"

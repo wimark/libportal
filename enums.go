@@ -6,6 +6,118 @@ import (
 	"github.com/globalsign/mgo/bson"
 )
 
+type AccessServerType string
+
+const AccessServerTypeCiscoISG AccessServerType = "Cisco ISG"
+const AccessServerTypeCiscoWLC AccessServerType = "Cisco WLC"
+const AccessServerTypeCoovaChilly AccessServerType = "CoovaChilly"
+const AccessServerTypeWimark AccessServerType = "Wimark"
+
+func (self AccessServerType) GetPtr() *AccessServerType { var v = self; return &v }
+
+func (self AccessServerType) String() string {
+	switch self {
+	case AccessServerTypeCiscoISG:
+		return "Cisco ISG"
+	case AccessServerTypeCiscoWLC:
+		return "Cisco WLC"
+	case AccessServerTypeCoovaChilly:
+		return "CoovaChilly"
+	case AccessServerTypeWimark:
+		return "Wimark"
+	}
+	if len(self) == 0 {
+		return "Wimark"
+	}
+	panic(errors.New("Invalid value of AccessServerType: " + string(self)))
+}
+
+func (self *AccessServerType) MarshalJSON() ([]byte, error) {
+	switch *self {
+	case AccessServerTypeCiscoISG:
+		return json.Marshal("Cisco ISG")
+	case AccessServerTypeCiscoWLC:
+		return json.Marshal("Cisco WLC")
+	case AccessServerTypeCoovaChilly:
+		return json.Marshal("CoovaChilly")
+	case AccessServerTypeWimark:
+		return json.Marshal("Wimark")
+	}
+	if len(*self) == 0 {
+		return json.Marshal("Wimark")
+	}
+	return nil, errors.New("Invalid value of AccessServerType: " + string(*self))
+}
+
+func (self *AccessServerType) GetBSON() (interface{}, error) {
+	switch *self {
+	case AccessServerTypeCiscoISG:
+		return "Cisco ISG", nil
+	case AccessServerTypeCiscoWLC:
+		return "Cisco WLC", nil
+	case AccessServerTypeCoovaChilly:
+		return "CoovaChilly", nil
+	case AccessServerTypeWimark:
+		return "Wimark", nil
+	}
+	if len(*self) == 0 {
+		return "Wimark", nil
+	}
+	return nil, errors.New("Invalid value of AccessServerType: " + string(*self))
+}
+
+func (self *AccessServerType) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "Cisco ISG":
+		*self = AccessServerTypeCiscoISG
+		return nil
+	case "Cisco WLC":
+		*self = AccessServerTypeCiscoWLC
+		return nil
+	case "CoovaChilly":
+		*self = AccessServerTypeCoovaChilly
+		return nil
+	case "Wimark":
+		*self = AccessServerTypeWimark
+		return nil
+	}
+	if len(s) == 0 {
+		*self = AccessServerTypeWimark
+		return nil
+	}
+	return errors.New("Unknown AccessServerType: " + s)
+}
+
+func (self *AccessServerType) SetBSON(v bson.Raw) error {
+	var s string
+	if err := v.Unmarshal(&s); err != nil {
+		return err
+	}
+	switch s {
+	case "Cisco ISG":
+		*self = AccessServerTypeCiscoISG
+		return nil
+	case "Cisco WLC":
+		*self = AccessServerTypeCiscoWLC
+		return nil
+	case "CoovaChilly":
+		*self = AccessServerTypeCoovaChilly
+		return nil
+	case "Wimark":
+		*self = AccessServerTypeWimark
+		return nil
+	}
+	if len(s) == 0 {
+		*self = AccessServerTypeWimark
+		return nil
+	}
+	return errors.New("Unknown AccessServerType: " + s)
+}
+
 type PortalActionListType string
 
 const PortalActionListTypeAddToAccessList PortalActionListType = "add_al"
