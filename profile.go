@@ -71,14 +71,16 @@ type PortalClientSession struct {
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 }
 
-// PortalClientAuthentication struct for store portal client
+// PortalClientAuthentication struct for store portal client authen
+// client could be authenticated in one profile
 type PortalClientAuthentication struct {
 	Id string `json:"id" bson:"_id"`
 
 	// client identification
-	Profile string `json:"profile" bson:"profile"`
 	MAC     string `json:"mac" bson:"mac"`
-	WLAN    string `json:"wlan_id" bson:"wlan_id"`
+	Profile string `json:"profile" bson:"profile"`
+
+	WLAN string `json:"wlan_id" bson:"wlan_id"` // not actually needed
 
 	// data with identity and authentication info
 	Data PortalAuthenticationData `json:"data" bson:"data"`
@@ -186,7 +188,8 @@ type PortalAuthenticationData struct {
 type PortalAuthenticationConfig struct {
 	Id string `json:"id" bson:"_id"`
 
-	Type PortalAuthenticationType `json:"type" bson:"type"`
+	Enable bool                     `json:"enable" bson:"enable"`
+	Type   PortalAuthenticationType `json:"type" bson:"type"`
 
 	Name        string `json:"name" bson:"name"`
 	Description string `json:"description" bson:"description"`
@@ -231,9 +234,11 @@ type PortalAuthorizationData struct {
 type PortalAuthorizationConfig struct {
 	Id string `json:"id" bson:"_id"`
 
-	Type        PortalAuthorizationType `json:"type" bson:"type"`
-	Name        string                  `json:"name" bson:"name"`
-	Description string                  `json:"description" bson:"description"`
+	Enable bool                    `json:"enable" bson:"enable"`
+	Type   PortalAuthorizationType `json:"type" bson:"type"`
+
+	Name        string `json:"name" bson:"name"`
+	Description string `json:"description" bson:"description"`
 
 	// header and info for showing on captive portal page
 	Header string `json:"header" bson:"header"`
@@ -285,6 +290,7 @@ type PortalProfile struct {
 	Description string `json:"description" bson:"description"`
 
 	// condition to check
+	// TODO: check profile special API to find what profile will be for condition
 	Condition PortalCondition `json:"condition" bson:"condition"`
 
 	// authentication types
@@ -337,6 +343,14 @@ type PortalProfile struct {
 
 	// Block page for Random (Local Assigned) MAC Addresses
 	RandomMACBlockPage bool `json:"random_mac_block_page" bson:"random_mac_block_page"`
+
+	// settings for PushAgreement
+	PushAgreement struct {
+		Enable   bool   `json:"enable" bson:"enable"`
+		External bool   `json:"external" bson:"external"`
+		FileURL  string `json:"file_url" bson:"file_url"`
+		Text     string `json:"text" bson:"text"`
+	} `json:"push_agreement" bson:"push_agreement"`
 }
 
 func (p *PortalProfile) SortAd() {
