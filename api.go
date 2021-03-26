@@ -75,23 +75,23 @@ type APIResponse struct {
 // from frontend to backend
 type PortalBackendRequest struct {
 	// Needed client data
-	MAC   string `json:"mac" bson:"mac" form:"mac" query:"mac"`
-	CPE   string `json:"cpe_id" bson:"cpe_id" form:"cpe_id" query:"cpe_id"`
-	WLAN  string `json:"wlan_id" bson:"wlan_id" form:"wlan_id" query:"wlan_id"`
-	Ip    string `json:"client_ip" bson:"client_ip" form:"client_ip" query:"client_ip"`
-	NAS   string `json:"nas" bson:"nas"`
-	LocID string `json:"loc_id" bson:"loc_id"`
-	Hash  string `json:"hash" bson:"hash"`
+	MAC   string `json:"mac"`
+	CPE   string `json:"cpe_id"`
+	WLAN  string `json:"wlan_id"`
+	Ip    string `json:"client_ip"`
+	NAS   string `json:"nas"`
+	LocID string `json:"loc_id"`
+	Hash  string `json:"hash"`
 
 	// client credentials
-	Username string `json:"username,omitempty" bson:"username" form:"username" query:"username" validate:"-"`
-	Password string `json:"password,omitempty" bson:"password" form:"password" query:"password" validate:"-"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
 
 	// browser specific data
-	UserAgent string `json:"useragent"  bson:"useragent" form:"useragent" query:"useragent" validate:"-"`
+	UserAgent string `json:"useragent"`
 
 	// Address of platform CoA manager
-	SwitchURL string `json:"switch_url" validate:"-"`
+	SwitchURL string `json:"switch_url"`
 
 	// Remember period for user accounts
 	Remember int64 `json:"remember"`
@@ -129,10 +129,10 @@ type PortalBackendRequest struct {
 	Locale string `json:"locale"`
 
 	//socialNetwork data
-	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
+	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network"`
 
 	// segment for knowing where from this user is
-	Segment string `json:"segment" bson:"segment"`
+	Segment string `json:"segment"`
 
 	// for internal using
 	Timeout int64 `json:"-" validate:"-"`
@@ -147,6 +147,18 @@ type PortalBackendRequest struct {
 
 	// is CNA (Captive network Assistant)
 	CNA bool `json:"cna"`
+
+	// Add For UAM (aka Coova Chilli) server
+	Res       string `json:"res"`
+	UAMIP     string `json:"uamip"`
+	UAMPort   string `json:"uamport"`
+	Challenge string `json:"challenge"`
+	Called    string `json:"called"`
+	// MAC       string
+	IP        string `json:"ip"`
+	NasID     string `json:"nasid"`
+	SessionID string `json:"sessionid"`
+	UserURL   string `json:"userurl"`
 }
 
 // PortalResponseObject struct for answer from Portal
