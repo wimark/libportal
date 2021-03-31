@@ -46,14 +46,14 @@ type RadAcctRequest struct {
 	AcctStatusType      string `json:"Acct-Status-Type"`
 	AcctTerminateCause  string `json:"Acct-Terminate-Cause,omitempty"`
 	AcctSessionID       string `json:"Acct-Session-ID`
-	AcctDelayTime       int    `json:"Acct-Delay-Time"`
-	AcctInputGigawords  int    `json:"Acct-Input-Gigawords"`
-	AcctOutputGigawords int    `json:"Acct-Output-Gigawords"`
-	AcctOutputOctets    int    `json:"Acct-Output-Octets"`
-	AcctInputOctets     int    `json:"Acct-Input-Octets"`
-	AcctInputPackets    int    `json:"Acct-Input-Packets"`
-	AcctOutputPackets   int    `json:"Acct-Output-Packets"`
-	AcctSessionTime     int    `json:"Acct-Session-Time"`
+	AcctDelayTime       string `json:"Acct-Delay-Time"`
+	AcctInputGigawords  string `json:"Acct-Input-Gigawords"`
+	AcctOutputGigawords string `json:"Acct-Output-Gigawords"`
+	AcctOutputOctets    string `json:"Acct-Output-Octets"`
+	AcctInputOctets     string `json:"Acct-Input-Octets"`
+	AcctInputPackets    string `json:"Acct-Input-Packets"`
+	AcctOutputPackets   string `json:"Acct-Output-Packets"`
+	AcctSessionTime     string `json:"Acct-Session-Time"`
 
 	Attr261455910     string `json:"Attr-26.14559.10"`
 	ChilliSpotVersion string `json:"ChilliSpot-Version"`
