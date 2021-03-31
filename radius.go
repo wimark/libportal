@@ -31,7 +31,7 @@ type RadAccessRequest struct {
 
 type RadAccessResponce struct {
 	Code  int         `json:"Code"`
-	Reply []mapEntity `json:"Reply-Message"`
+	Reply []MapEntity `json:"Reply-Message,omitempty"`
 }
 
 type RadAcctRequest struct {
@@ -68,7 +68,7 @@ type RadAccounting struct {
 	ID     string    `json:"id" bson:"_id"`
 }
 
-type mapEntity struct {
+type MapEntity struct {
 	Key   string `json:"k"`
 	Value string `json:"v"`
 }
