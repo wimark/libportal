@@ -8,7 +8,7 @@ const (
 type AccessServer struct {
 	ID string `json:"id" bson:"_id"`
 
-	Enable bool             `json:"enable" bson:"bson"`
+	Enable bool             `json:"enable" bson:"enable"`
 	Name   string           `json:"name" bson:"name"`
 	Type   AccessServerType `json:"type" bson:"type"`
 
