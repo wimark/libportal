@@ -184,4 +184,7 @@ type PortalBackendResponse struct {
 
 	// data for new auth stage
 	Data2 interface{} `json:"data2,omitempty"`
+
+	// "removal" of identification and authorization of clients
+	IsDeleted bool `json:"is_deleted"`
 }
