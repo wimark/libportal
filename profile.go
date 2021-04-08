@@ -68,6 +68,9 @@ type PortalClientSession struct {
 	Username string `json:"username" bson:"username"`
 	Password string `json:"password" bson:"password"`
 
+	// "removal" of identification and authorization of clients
+	IsDeleted bool `json:"is_deleted"`
+
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 }
 
@@ -90,6 +93,9 @@ type PortalClientAuthentication struct {
 	// valid time
 	CreateAt int64 `json:"create_at" bson:"create_at"`
 	ExpireAt int64 `json:"expire_at" bson:"expire_at"`
+
+	// "removal" of identification and authorization of clients
+	IsDeleted bool `json:"is_deleted"`
 }
 
 // PortalCondition struct for apply profile condition
