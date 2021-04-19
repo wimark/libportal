@@ -1,6 +1,7 @@
 # libportal changelog 
 
 ## Current 
+- WNE-2237: Add: const sms in PortalClientSession ()
 - WNE-2228: Add: "removal" of identification and authorization of clients (5a969e3)
 - WNE-2019: Add: Callfront as authN type (e0490a1)
 - WNE-2000: Add: user photo to account (f8e3fbf)
