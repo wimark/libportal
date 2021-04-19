@@ -69,10 +69,10 @@ type PortalClientSession struct {
 	Password string `json:"password" bson:"password"`
 
 	// "removal" of identification and authorization of clients
-	IsDeleted bool `json:"is_deleted"`
+	IsDeleted bool `json:"is_deleted" bson:"is_deleted"`
 
 	// Cost sms from sms.ru
-	Cost float64 `json:"cost"`
+	Cost float64 `json:"cost,omitempty" bson:"cost"`
 
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 }
