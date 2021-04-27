@@ -72,7 +72,7 @@ type PortalClientSession struct {
 	IsDeleted bool `json:"is_deleted" bson:"is_deleted"`
 
 	// Cost sms from sms.ru
-	Cost float64 `json:"cost,omitempty" bson:"cost"`
+	Cost float64 `json:"cost" bson:"cost"`
 
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
 }
@@ -98,7 +98,7 @@ type PortalClientAuthentication struct {
 	ExpireAt int64 `json:"expire_at" bson:"expire_at"`
 
 	// "removal" of identification and authorization of clients
-	IsDeleted bool `json:"is_deleted"`
+	IsDeleted bool `json:"is_deleted" bson:"is_deleted"`
 }
 
 // PortalCondition struct for apply profile condition
