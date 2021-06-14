@@ -72,3 +72,12 @@ type MapEntity struct {
 	Key   string `json:"k"`
 	Value string `json:"v"`
 }
+
+type RadCoARequest struct {
+	UserName        string `json:"User-Name"`
+	AcctSessionId   string `json:"Acct-Session-Id"`
+	FramedIPAddress string `json:"Framed-IP-Address"`
+
+	SessionTimeout int `json:"Session-Timeout"`
+	IdleTimeout    int `json:"Idle-Timeout"`
+}
