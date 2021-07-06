@@ -10,26 +10,29 @@ type AccessServerType string
 
 const AccessServerTypeCiscoISG AccessServerType = "Cisco ISG"
 const AccessServerTypeCiscoWLC AccessServerType = "Cisco WLC"
-const AccessServerTypeCoovaChilly AccessServerType = "CoovaChilly"
+const AccessServerTypeCoovaChilly AccessServerType = "CoovaChilli"
+const AccessServerTypeEcoBRAS AccessServerType = "EcoBRAS"
 const AccessServerTypeWimark AccessServerType = "Wimark"
 
 func (self AccessServerType) GetPtr() *AccessServerType { var v = self; return &v }
 
-func (self AccessServerType) String() string {
-	switch self {
+func (self *AccessServerType) String() string {
+	switch *self {
 	case AccessServerTypeCiscoISG:
 		return "Cisco ISG"
 	case AccessServerTypeCiscoWLC:
 		return "Cisco WLC"
 	case AccessServerTypeCoovaChilly:
-		return "CoovaChilly"
+		return "CoovaChilli"
+	case AccessServerTypeEcoBRAS:
+		return "EcoBRAS"
 	case AccessServerTypeWimark:
 		return "Wimark"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "Wimark"
 	}
-	panic(errors.New("Invalid value of AccessServerType: " + string(self)))
+	panic(errors.New("Invalid value of AccessServerType: " + string(*self)))
 }
 
 func (self *AccessServerType) MarshalJSON() ([]byte, error) {
@@ -39,7 +42,9 @@ func (self *AccessServerType) MarshalJSON() ([]byte, error) {
 	case AccessServerTypeCiscoWLC:
 		return json.Marshal("Cisco WLC")
 	case AccessServerTypeCoovaChilly:
-		return json.Marshal("CoovaChilly")
+		return json.Marshal("CoovaChilli")
+	case AccessServerTypeEcoBRAS:
+		return json.Marshal("EcoBRAS")
 	case AccessServerTypeWimark:
 		return json.Marshal("Wimark")
 	}
@@ -56,7 +61,9 @@ func (self *AccessServerType) GetBSON() (interface{}, error) {
 	case AccessServerTypeCiscoWLC:
 		return "Cisco WLC", nil
 	case AccessServerTypeCoovaChilly:
-		return "CoovaChilly", nil
+		return "CoovaChilli", nil
+	case AccessServerTypeEcoBRAS:
+		return "EcoBRAS", nil
 	case AccessServerTypeWimark:
 		return "Wimark", nil
 	}
@@ -78,8 +85,11 @@ func (self *AccessServerType) UnmarshalJSON(b []byte) error {
 	case "Cisco WLC":
 		*self = AccessServerTypeCiscoWLC
 		return nil
-	case "CoovaChilly":
+	case "CoovaChilli":
 		*self = AccessServerTypeCoovaChilly
+		return nil
+	case "EcoBRAS":
+		*self = AccessServerTypeEcoBRAS
 		return nil
 	case "Wimark":
 		*self = AccessServerTypeWimark
@@ -104,8 +114,11 @@ func (self *AccessServerType) SetBSON(v bson.Raw) error {
 	case "Cisco WLC":
 		*self = AccessServerTypeCiscoWLC
 		return nil
-	case "CoovaChilly":
+	case "CoovaChilli":
 		*self = AccessServerTypeCoovaChilly
+		return nil
+	case "EcoBRAS":
+		*self = AccessServerTypeEcoBRAS
 		return nil
 	case "Wimark":
 		*self = AccessServerTypeWimark
@@ -130,8 +143,8 @@ const PortalActionListTypeNone PortalActionListType = "none"
 
 func (self PortalActionListType) GetPtr() *PortalActionListType { var v = self; return &v }
 
-func (self PortalActionListType) String() string {
-	switch self {
+func (self *PortalActionListType) String() string {
+	switch *self {
 	case PortalActionListTypeAddToAccessList:
 		return "add_al"
 	case PortalActionListTypeAddToBlackList:
@@ -147,10 +160,10 @@ func (self PortalActionListType) String() string {
 	case PortalActionListTypeNone:
 		return "none"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalActionListType: " + string(self)))
+	panic(errors.New("Invalid value of PortalActionListType: " + string(*self)))
 }
 
 func (self *PortalActionListType) MarshalJSON() ([]byte, error) {
@@ -276,17 +289,17 @@ const PortalAdvertisementStateNeed PortalAdvertisementState = "none"
 
 func (self PortalAdvertisementState) GetPtr() *PortalAdvertisementState { var v = self; return &v }
 
-func (self PortalAdvertisementState) String() string {
-	switch self {
+func (self *PortalAdvertisementState) String() string {
+	switch *self {
 	case PortalAdvertisementStateChecked:
 		return "checked"
 	case PortalAdvertisementStateNeed:
 		return "none"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalAdvertisementState: " + string(self)))
+	panic(errors.New("Invalid value of PortalAdvertisementState: " + string(*self)))
 }
 
 func (self *PortalAdvertisementState) MarshalJSON() ([]byte, error) {
@@ -368,8 +381,8 @@ const PortalAdvertisementTypeVideo PortalAdvertisementType = "video"
 
 func (self PortalAdvertisementType) GetPtr() *PortalAdvertisementType { var v = self; return &v }
 
-func (self PortalAdvertisementType) String() string {
-	switch self {
+func (self *PortalAdvertisementType) String() string {
+	switch *self {
 	case PortalAdvertisementTypeFlash:
 		return "flash"
 	case PortalAdvertisementTypeIframe:
@@ -387,10 +400,10 @@ func (self PortalAdvertisementType) String() string {
 	case PortalAdvertisementTypeVideo:
 		return "video"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "image"
 	}
-	panic(errors.New("Invalid value of PortalAdvertisementType: " + string(self)))
+	panic(errors.New("Invalid value of PortalAdvertisementType: " + string(*self)))
 }
 
 func (self *PortalAdvertisementType) MarshalJSON() ([]byte, error) {
@@ -527,8 +540,8 @@ const PortalAuthenticationStateSent PortalAuthenticationState = "sent"
 
 func (self PortalAuthenticationState) GetPtr() *PortalAuthenticationState { var v = self; return &v }
 
-func (self PortalAuthenticationState) String() string {
-	switch self {
+func (self *PortalAuthenticationState) String() string {
+	switch *self {
 	case PortalAuthenticationStateChecked:
 		return "checked"
 	case PortalAuthenticationStateNeed:
@@ -536,10 +549,10 @@ func (self PortalAuthenticationState) String() string {
 	case PortalAuthenticationStateSent:
 		return "sent"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "need"
 	}
-	panic(errors.New("Invalid value of PortalAuthenticationState: " + string(self)))
+	panic(errors.New("Invalid value of PortalAuthenticationState: " + string(*self)))
 }
 
 func (self *PortalAuthenticationState) MarshalJSON() ([]byte, error) {
@@ -632,8 +645,8 @@ const PortalAuthenticationTypeVoucher PortalAuthenticationType = "voucher"
 
 func (self PortalAuthenticationType) GetPtr() *PortalAuthenticationType { var v = self; return &v }
 
-func (self PortalAuthenticationType) String() string {
-	switch self {
+func (self *PortalAuthenticationType) String() string {
+	switch *self {
 	case PortalAuthenticationTypeCallFront:
 		return "callfront"
 	case PortalAuthenticationTypeCallback:
@@ -653,10 +666,10 @@ func (self PortalAuthenticationType) String() string {
 	case PortalAuthenticationTypeVoucher:
 		return "voucher"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "sms"
 	}
-	panic(errors.New("Invalid value of PortalAuthenticationType: " + string(self)))
+	panic(errors.New("Invalid value of PortalAuthenticationType: " + string(*self)))
 }
 
 func (self *PortalAuthenticationType) MarshalJSON() ([]byte, error) {
@@ -802,17 +815,17 @@ const PortalAuthorizationStateNeed PortalAuthorizationState = "none"
 
 func (self PortalAuthorizationState) GetPtr() *PortalAuthorizationState { var v = self; return &v }
 
-func (self PortalAuthorizationState) String() string {
-	switch self {
+func (self *PortalAuthorizationState) String() string {
+	switch *self {
 	case PortalAuthorizationStateChecked:
 		return "checked"
 	case PortalAuthorizationStateNeed:
 		return "none"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalAuthorizationState: " + string(self)))
+	panic(errors.New("Invalid value of PortalAuthorizationState: " + string(*self)))
 }
 
 func (self *PortalAuthorizationState) MarshalJSON() ([]byte, error) {
@@ -897,8 +910,8 @@ const PortalAuthorizationTypeVoucher PortalAuthorizationType = "voucher"
 
 func (self PortalAuthorizationType) GetPtr() *PortalAuthorizationType { var v = self; return &v }
 
-func (self PortalAuthorizationType) String() string {
-	switch self {
+func (self *PortalAuthorizationType) String() string {
+	switch *self {
 	case PortalAuthorizationTypeExtVoucher:
 		return "ext_voucher"
 	case PortalAuthorizationTypeFB:
@@ -922,10 +935,10 @@ func (self PortalAuthorizationType) String() string {
 	case PortalAuthorizationTypeVoucher:
 		return "voucher"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalAuthorizationType: " + string(self)))
+	panic(errors.New("Invalid value of PortalAuthorizationType: " + string(*self)))
 }
 
 func (self *PortalAuthorizationType) MarshalJSON() ([]byte, error) {
@@ -1095,8 +1108,8 @@ const PortalOSTypeWindows PortalOSType = "Windows"
 
 func (self PortalOSType) GetPtr() *PortalOSType { var v = self; return &v }
 
-func (self PortalOSType) String() string {
-	switch self {
+func (self *PortalOSType) String() string {
+	switch *self {
 	case PortalOSTypeAndroid:
 		return "Android"
 	case PortalOSTypeIOS:
@@ -1110,10 +1123,10 @@ func (self PortalOSType) String() string {
 	case PortalOSTypeWindows:
 		return "Windows"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalOSType: " + string(self)))
+	panic(errors.New("Invalid value of PortalOSType: " + string(*self)))
 }
 
 func (self *PortalOSType) MarshalJSON() ([]byte, error) {
@@ -1230,8 +1243,8 @@ const PortalPaymentSystemTypeGuide PortalPaymentSystemType = "guide"
 
 func (self PortalPaymentSystemType) GetPtr() *PortalPaymentSystemType { var v = self; return &v }
 
-func (self PortalPaymentSystemType) String() string {
-	switch self {
+func (self *PortalPaymentSystemType) String() string {
+	switch *self {
 	case PortalPaymentSystemTypeExternal:
 		return "ext"
 	case PortalPaymentSystemTypeExternalURL:
@@ -1239,10 +1252,10 @@ func (self PortalPaymentSystemType) String() string {
 	case PortalPaymentSystemTypeGuide:
 		return "guide"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "guide"
 	}
-	panic(errors.New("Invalid value of PortalPaymentSystemType: " + string(self)))
+	panic(errors.New("Invalid value of PortalPaymentSystemType: " + string(*self)))
 }
 
 func (self *PortalPaymentSystemType) MarshalJSON() ([]byte, error) {
@@ -1332,8 +1345,8 @@ const PortalReportObjectTypeStatReport PortalReportObjectType = "stat"
 
 func (self PortalReportObjectType) GetPtr() *PortalReportObjectType { var v = self; return &v }
 
-func (self PortalReportObjectType) String() string {
-	switch self {
+func (self *PortalReportObjectType) String() string {
+	switch *self {
 	case PortalReportObjectTypeAdAndPollsReport:
 		return "ad_and_polls"
 	case PortalReportObjectTypeClientsReport:
@@ -1347,10 +1360,10 @@ func (self PortalReportObjectType) String() string {
 	case PortalReportObjectTypeStatReport:
 		return "stat"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "none"
 	}
-	panic(errors.New("Invalid value of PortalReportObjectType: " + string(self)))
+	panic(errors.New("Invalid value of PortalReportObjectType: " + string(*self)))
 }
 
 func (self *PortalReportObjectType) MarshalJSON() ([]byte, error) {
@@ -1466,17 +1479,17 @@ const PortalResponseStatusSuccess PortalResponseStatus = "success"
 
 func (self PortalResponseStatus) GetPtr() *PortalResponseStatus { var v = self; return &v }
 
-func (self PortalResponseStatus) String() string {
-	switch self {
+func (self *PortalResponseStatus) String() string {
+	switch *self {
 	case PortalResponseStatusError:
 		return "error"
 	case PortalResponseStatusSuccess:
 		return "success"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "success"
 	}
-	panic(errors.New("Invalid value of PortalResponseStatus: " + string(self)))
+	panic(errors.New("Invalid value of PortalResponseStatus: " + string(*self)))
 }
 
 func (self *PortalResponseStatus) MarshalJSON() ([]byte, error) {
@@ -1553,8 +1566,8 @@ const PortalSignTypeLess PortalSignType = "less"
 
 func (self PortalSignType) GetPtr() *PortalSignType { var v = self; return &v }
 
-func (self PortalSignType) String() string {
-	switch self {
+func (self *PortalSignType) String() string {
+	switch *self {
 	case PortalSignTypeEqual:
 		return "equal"
 	case PortalSignTypeGreater:
@@ -1562,10 +1575,10 @@ func (self PortalSignType) String() string {
 	case PortalSignTypeLess:
 		return "less"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "greater"
 	}
-	panic(errors.New("Invalid value of PortalSignType: " + string(self)))
+	panic(errors.New("Invalid value of PortalSignType: " + string(*self)))
 }
 
 func (self *PortalSignType) MarshalJSON() ([]byte, error) {
@@ -1654,8 +1667,8 @@ const PortalUserStatePass PortalUserState = "pass"
 
 func (self PortalUserState) GetPtr() *PortalUserState { var v = self; return &v }
 
-func (self PortalUserState) String() string {
-	switch self {
+func (self *PortalUserState) String() string {
+	switch *self {
 	case PortalUserStateAdvertise:
 		return "advertise"
 	case PortalUserStateAuthenticate:
@@ -1667,10 +1680,10 @@ func (self PortalUserState) String() string {
 	case PortalUserStatePass:
 		return "pass"
 	}
-	if len(self) == 0 {
+	if len(*self) == 0 {
 		return "new"
 	}
-	panic(errors.New("Invalid value of PortalUserState: " + string(self)))
+	panic(errors.New("Invalid value of PortalUserState: " + string(*self)))
 }
 
 func (self *PortalUserState) MarshalJSON() ([]byte, error) {

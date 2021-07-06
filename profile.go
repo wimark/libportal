@@ -75,6 +75,8 @@ type PortalClientSession struct {
 	Cost float64 `json:"cost" bson:"cost"`
 
 	SocialNetwork map[string]AccountFromSocialNetwork `json:"social_network" bson:"social_network"`
+
+	AcctSessionID string `json:"acct_session_id" bson:"acct_session_id"`
 }
 
 // PortalClientAuthentication struct for store portal client authen
