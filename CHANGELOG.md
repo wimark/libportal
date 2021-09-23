@@ -1,7 +1,7 @@
 # libportal changelog 
 
 ## [v1.6.0] 
-
+ - WNE-2422: Add: add identity to PortalUserVoucher (88c4d9e)
  - WNE-2325: Add: PostAuthVSA in Access Server struct (4d4061c)
  - WNE-2325: Add: RDP intergration fields (229e306)
  - Del omitempty from cost (fd00317)
