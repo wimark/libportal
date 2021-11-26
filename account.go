@@ -92,6 +92,8 @@ type PortalUserVoucher struct {
 	Code string `json:"code" bson:"code"`
 	Used bool   `json:"used" bson:"used"`
 
+	Identity string `json:"identity" bson:"identity"`
+
 	// limits
 	SpeedLimit   int   `json:"speed" bson:"speed"`
 	TimeoutLimit int64 `json:"session" bson:"session"`
