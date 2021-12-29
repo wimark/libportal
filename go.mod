@@ -1,4 +1,4 @@
-module bitbucket.org/wimarksystems/libportal
+module github.com/wimark/libportal
 
 go 1.13
 
