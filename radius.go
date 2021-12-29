@@ -45,7 +45,7 @@ type RadAcctRequest struct {
 
 	AcctStatusType      string `json:"Acct-Status-Type"`
 	AcctTerminateCause  string `json:"Acct-Terminate-Cause,omitempty"`
-	AcctSessionID       string `json:"Acct-Session-ID`
+	AcctSessionID       string `json:"Acct-Session-ID"`
 	AcctDelayTime       string `json:"Acct-Delay-Time"`
 	AcctInputGigawords  string `json:"Acct-Input-Gigawords"`
 	AcctOutputGigawords string `json:"Acct-Output-Gigawords"`

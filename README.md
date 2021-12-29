@@ -1,10 +1,22 @@
 # libportal
 
-Library by Wimark for Portal (backend, admin, API) usage.
-Code was moved from *libwimark* for better portability.
+Library with main models, functions and bindings, using in Portal-related Golang's microservices in Wimark.
 
-# copyright 
+## Usage
 
-Wimark Systems, 2020
+After change any *.toml files you need to regenerate *enums.go files. It can be done with [enum-generator](https://github.com/wimark/enum-generator) tool. 
 
-[wimark](https://wimark.com)
+```bash
+# install enum-generator
+
+go get github.com/wimark/enum-generator
+go install github.com/wimark/enum-generator
+
+# build enums
+./enums.sh
+
+```
+
+## Copyright
+
+Wimark Systems, 2021
