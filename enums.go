@@ -131,6 +131,105 @@ func (en *AccessServerType) SetBSON(v bson.Raw) error {
 	return errors.New("Unknown AccessServerType: " + s)
 }
 
+type Locale string
+
+const LocaleEn Locale = "en"
+const LocaleRu Locale = "ru"
+const LocaleTg Locale = "tg"
+
+func (en Locale) GetPtr() *Locale { var v = en; return &v }
+
+func (en Locale) String() string {
+	switch en {
+	case LocaleEn:
+		return "en"
+	case LocaleRu:
+		return "ru"
+	case LocaleTg:
+		return "tg"
+	}
+	if len(en) == 0 {
+		return "ru"
+	}
+	panic(errors.New("Invalid value of Locale: " + string(en)))
+}
+
+func (en *Locale) MarshalJSON() ([]byte, error) {
+	switch *en {
+	case LocaleEn:
+		return json.Marshal("en")
+	case LocaleRu:
+		return json.Marshal("ru")
+	case LocaleTg:
+		return json.Marshal("tg")
+	}
+	if len(*en) == 0 {
+		return json.Marshal("ru")
+	}
+	return nil, errors.New("Invalid value of Locale: " + string(*en))
+}
+
+func (en *Locale) GetBSON() (interface{}, error) {
+	switch *en {
+	case LocaleEn:
+		return "en", nil
+	case LocaleRu:
+		return "ru", nil
+	case LocaleTg:
+		return "tg", nil
+	}
+	if len(*en) == 0 {
+		return "ru", nil
+	}
+	return nil, errors.New("Invalid value of Locale: " + string(*en))
+}
+
+func (en *Locale) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "en":
+		*en = LocaleEn
+		return nil
+	case "ru":
+		*en = LocaleRu
+		return nil
+	case "tg":
+		*en = LocaleTg
+		return nil
+	}
+	if len(s) == 0 {
+		*en = LocaleRu
+		return nil
+	}
+	return errors.New("Unknown Locale: " + s)
+}
+
+func (en *Locale) SetBSON(v bson.Raw) error {
+	var s string
+	if err := v.Unmarshal(&s); err != nil {
+		return err
+	}
+	switch s {
+	case "en":
+		*en = LocaleEn
+		return nil
+	case "ru":
+		*en = LocaleRu
+		return nil
+	case "tg":
+		*en = LocaleTg
+		return nil
+	}
+	if len(s) == 0 {
+		*en = LocaleRu
+		return nil
+	}
+	return errors.New("Unknown Locale: " + s)
+}
+
 type PortalActionListType string
 
 const PortalActionListTypeAddToAccessList PortalActionListType = "add_al"
@@ -905,6 +1004,7 @@ const PortalAuthorizationTypeNone PortalAuthorizationType = "none"
 const PortalAuthorizationTypeSkip PortalAuthorizationType = "skip"
 const PortalAuthorizationTypeSponsor PortalAuthorizationType = "sponsor"
 const PortalAuthorizationTypeStaff PortalAuthorizationType = "staff"
+const PortalAuthorizationTypeSubscription PortalAuthorizationType = "subscription"
 const PortalAuthorizationTypeVK PortalAuthorizationType = "vk"
 const PortalAuthorizationTypeVoucher PortalAuthorizationType = "voucher"
 
@@ -930,6 +1030,8 @@ func (en PortalAuthorizationType) String() string {
 		return "sponsor"
 	case PortalAuthorizationTypeStaff:
 		return "staff"
+	case PortalAuthorizationTypeSubscription:
+		return "subscription"
 	case PortalAuthorizationTypeVK:
 		return "vk"
 	case PortalAuthorizationTypeVoucher:
@@ -961,6 +1063,8 @@ func (en *PortalAuthorizationType) MarshalJSON() ([]byte, error) {
 		return json.Marshal("sponsor")
 	case PortalAuthorizationTypeStaff:
 		return json.Marshal("staff")
+	case PortalAuthorizationTypeSubscription:
+		return json.Marshal("subscription")
 	case PortalAuthorizationTypeVK:
 		return json.Marshal("vk")
 	case PortalAuthorizationTypeVoucher:
@@ -992,6 +1096,8 @@ func (en *PortalAuthorizationType) GetBSON() (interface{}, error) {
 		return "sponsor", nil
 	case PortalAuthorizationTypeStaff:
 		return "staff", nil
+	case PortalAuthorizationTypeSubscription:
+		return "subscription", nil
 	case PortalAuthorizationTypeVK:
 		return "vk", nil
 	case PortalAuthorizationTypeVoucher:
@@ -1035,6 +1141,9 @@ func (en *PortalAuthorizationType) UnmarshalJSON(b []byte) error {
 		return nil
 	case "staff":
 		*en = PortalAuthorizationTypeStaff
+		return nil
+	case "subscription":
+		*en = PortalAuthorizationTypeSubscription
 		return nil
 	case "vk":
 		*en = PortalAuthorizationTypeVK
@@ -1082,6 +1191,9 @@ func (en *PortalAuthorizationType) SetBSON(v bson.Raw) error {
 		return nil
 	case "staff":
 		*en = PortalAuthorizationTypeStaff
+		return nil
+	case "subscription":
+		*en = PortalAuthorizationTypeSubscription
 		return nil
 	case "vk":
 		*en = PortalAuthorizationTypeVK
@@ -1780,4 +1892,90 @@ func (en *PortalUserState) SetBSON(v bson.Raw) error {
 		return nil
 	}
 	return errors.New("Unknown PortalUserState: " + s)
+}
+
+type TariffPlanType string
+
+const TariffPlanTypeSubscription TariffPlanType = "subscription"
+const TariffPlanTypeVoucher TariffPlanType = "voucher"
+
+func (en TariffPlanType) GetPtr() *TariffPlanType { var v = en; return &v }
+
+func (en TariffPlanType) String() string {
+	switch en {
+	case TariffPlanTypeSubscription:
+		return "subscription"
+	case TariffPlanTypeVoucher:
+		return "voucher"
+	}
+	if len(en) == 0 {
+		return "voucher"
+	}
+	panic(errors.New("Invalid value of TariffPlanType: " + string(en)))
+}
+
+func (en *TariffPlanType) MarshalJSON() ([]byte, error) {
+	switch *en {
+	case TariffPlanTypeSubscription:
+		return json.Marshal("subscription")
+	case TariffPlanTypeVoucher:
+		return json.Marshal("voucher")
+	}
+	if len(*en) == 0 {
+		return json.Marshal("voucher")
+	}
+	return nil, errors.New("Invalid value of TariffPlanType: " + string(*en))
+}
+
+func (en *TariffPlanType) GetBSON() (interface{}, error) {
+	switch *en {
+	case TariffPlanTypeSubscription:
+		return "subscription", nil
+	case TariffPlanTypeVoucher:
+		return "voucher", nil
+	}
+	if len(*en) == 0 {
+		return "voucher", nil
+	}
+	return nil, errors.New("Invalid value of TariffPlanType: " + string(*en))
+}
+
+func (en *TariffPlanType) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	switch s {
+	case "subscription":
+		*en = TariffPlanTypeSubscription
+		return nil
+	case "voucher":
+		*en = TariffPlanTypeVoucher
+		return nil
+	}
+	if len(s) == 0 {
+		*en = TariffPlanTypeVoucher
+		return nil
+	}
+	return errors.New("Unknown TariffPlanType: " + s)
+}
+
+func (en *TariffPlanType) SetBSON(v bson.Raw) error {
+	var s string
+	if err := v.Unmarshal(&s); err != nil {
+		return err
+	}
+	switch s {
+	case "subscription":
+		*en = TariffPlanTypeSubscription
+		return nil
+	case "voucher":
+		*en = TariffPlanTypeVoucher
+		return nil
+	}
+	if len(s) == 0 {
+		*en = TariffPlanTypeVoucher
+		return nil
+	}
+	return errors.New("Unknown TariffPlanType: " + s)
 }

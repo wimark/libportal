@@ -109,7 +109,10 @@ type PortalTariffPlan struct {
 
 	Profile string `json:"profile" bson:"profile"`
 
-	// name
+	// tariff plan code be for vouchers or for subscriptions
+	Type TariffPlanType `json:"type" bson:"type"`
+
+	// name of plan
 	Name string `json:"name" bson:"name"`
 
 	// limits
@@ -120,6 +123,13 @@ type PortalTariffPlan struct {
 	// how much to pay
 	Amount   int    `json:"amount" bson:"amount"`
 	Currency string `json:"currency" bson:"currency"`
+
+	// data for subscriptions
+	Reccuring         bool   `json:"recurring" bson:"recurring"`
+	ReccuringInterval string `json:"recurring_period" bson:"recurring_period"`
+
+	// friendly description on different languages
+	Description map[Locale]string `json:"description" bson:"description"`
 
 	// service info
 	Create   time.Time `json:"create" bson:"create"`

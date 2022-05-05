@@ -338,7 +338,7 @@ type PortalProfile struct {
 	AllowBalance   bool     `json:"allow_balance" bson:"allow_balance"`
 	PaymentSystems []string `json:"payment_systems" bson:"payment_systems"`
 
-	// settings for terms of service
+	// settings for terms of service (no locale)
 	TermsOfService struct {
 		Enable   bool   `json:"enable" bson:"enable"`
 		External bool   `json:"external" bson:"external"`
@@ -346,16 +346,17 @@ type PortalProfile struct {
 		Text     string `json:"text" bson:"text"`
 	} `json:"terms_of_service" bson:"terms_of_service"`
 
-	// messages for OTP codes / vouchers
+	// messages for OTP codes / vouchers and subscriptions
 	PushText struct {
-		OTP     string `json:"otp" bson:"otp"`
-		Voucher string `json:"voucher" bson:"voucher"`
+		OTP          string `json:"otp" bson:"otp"`
+		Voucher      string `json:"voucher" bson:"voucher"`
+		Subscription string `json:"subscription" bson:"subscription"`
 	} `json:"push_text" bson:"push_text"`
 
 	// Block page for Random (Local Assigned) MAC Addresses
 	RandomMACBlockPage bool `json:"random_mac_block_page" bson:"random_mac_block_page"`
 
-	// settings for PushAgreement
+	// settings for PushAgreement (no locale)
 	PushAgreement struct {
 		Enable   bool   `json:"enable" bson:"enable"`
 		External bool   `json:"external" bson:"external"`
@@ -416,15 +417,15 @@ type PortalPageProfile struct {
 	} `json:"interface" bson:"interface"`
 
 	// locales
-	Locales map[string]string `json:"locales" bson:"locales"`
+	Locales map[Locale]string `json:"locales" bson:"locales"`
 
 	// service aggrement per locale
-	Agreements map[string]string `json:"agreements" bson:"agreements"`
+	Agreements map[Locale]string `json:"agreements" bson:"agreements"`
 
-	// service aggrement plain text
+	// service aggrement plain text (no locale)
 	Agreement string `json:"agreement" bson:"agreement"`
 
-	// support field (email / phone / etc)
+	// support field (email / phone / etc) (no locale)
 	Support string `json:"support" bson:"support"`
 }
 
