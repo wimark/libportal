@@ -297,6 +297,7 @@ type PortalNotification struct {
 type PortalProfile struct {
 	Id string `json:"id" bson:"_id"`
 
+	ShortID     string `json:"short_id" bson:"short_id"`
 	Name        string `json:"name" bson:"name"`
 	Description string `json:"description" bson:"description"`
 
