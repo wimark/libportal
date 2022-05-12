@@ -73,7 +73,9 @@ type PortalUserAccountShort struct {
 	Balance  int    `json:"balance" bson:"balance"`
 	Currency string `json:"currency" bson:"currency"`
 
-	CreateAt int64 `json:"create_at" bson:"create_at"`
+	CreateAt        int64 `json:"create_at" bson:"create_at"`
+	IsAuthConfirm   bool  `json:"is_auth_confirm" bson:"is_auth_confirm"`
+	NextAuthConfirm int64 `json:"next_auth_confirm" bson:"next_auth_confirm"`
 }
 
 // PortalUserVoucher struct to represent voucher
