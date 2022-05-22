@@ -55,6 +55,9 @@ type PortalUserAccount struct {
 
 	// common statistics
 	Visits map[string]int `json:"visits" bson:"visits"`
+
+	SubscribeID       string `json:"subscribe_id"`
+	CreateAtSubscribe int64  `json:"create_at_subscribe"`
 }
 
 // PortalUserAccountShort for short represent account
@@ -73,9 +76,10 @@ type PortalUserAccountShort struct {
 	Balance  int    `json:"balance" bson:"balance"`
 	Currency string `json:"currency" bson:"currency"`
 
-	CreateAt        int64 `json:"create_at" bson:"create_at"`
-	IsAuthConfirm   bool  `json:"is_auth_confirm" bson:"is_auth_confirm"`
-	NextAuthConfirm int64 `json:"next_auth_confirm" bson:"next_auth_confirm"`
+	CreateAt int64 `json:"create_at" bson:"create_at"`
+
+	SubscribeID       string `json:"subscribe_id"`
+	CreateAtSubscribe int64  `json:"create_at_subscribe"`
 }
 
 // PortalUserVoucher struct to represent voucher
