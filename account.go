@@ -56,8 +56,8 @@ type PortalUserAccount struct {
 	// common statistics
 	Visits map[string]int `json:"visits" bson:"visits"`
 
-	SubscribeID       string `json:"subscribe_id"`
-	CreateAtSubscribe int64  `json:"create_at_subscribe"`
+	SubscribeID       string `json:"subscribe_id" bson:"subscribe_id"`
+	CreateAtSubscribe int64  `json:"create_at_subscribe" bson:"create_at_subscribe"`
 }
 
 // PortalUserAccountShort for short represent account
