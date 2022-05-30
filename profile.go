@@ -364,6 +364,9 @@ type PortalProfile struct {
 		FileURL  string `json:"file_url" bson:"file_url"`
 		Text     string `json:"text" bson:"text"`
 	} `json:"push_agreement" bson:"push_agreement"`
+
+	// service private area
+	EnableLineCabinet bool `json:"enable_line_cabinet" bson:"enable_line_cabinet"`
 }
 
 func (p *PortalProfile) SortAd() {
@@ -428,9 +431,6 @@ type PortalPageProfile struct {
 
 	// support field (email / phone / etc) (no locale)
 	Support string `json:"support" bson:"support"`
-
-	// service private area
-	EnableLineCabinet bool `json:"enable_line_cabinet" bson:"enable_line_cabinet"`
 }
 
 // PortalPageSchedule for schedule of page_id to be on loc_id URL
