@@ -1,5 +1,15 @@
 # libportal changelog 
 
+## [current]
+
+ - Add: transferable flag to Authn config (381f0d3)
+ - Add: enableLineCabinet bool (a19e7b0)
+ - Add: SubscribeID and CreateAtSubscribe bson struct tag for (cbc8af2)
+ - Add: SubscribeID and CreateAtSubscribe for account.go (9c76c3b)
+ - Add: IsAuthConfirm and NextAuthConfirm for account.go (878d972)
+ - Add: shortID field for portalProfile (8dd3893)
+ - Add: subscription/locale types (c3cf510)
+
 ## [v1.6.0] 
  - WNE-2422: Add: add identity to PortalUserVoucher (88c4d9e)
  - WNE-2325: Add: PostAuthVSA in Access Server struct (4d4061c)

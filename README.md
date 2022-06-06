@@ -19,4 +19,4 @@ go install github.com/wimark/enum-generator
 
 ## Copyright
 
-Wimark Systems, 2021
+Wimark Systems, 2021-2022

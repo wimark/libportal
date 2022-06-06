@@ -255,9 +255,6 @@ type PortalAuthorizationConfig struct {
 	Header string `json:"header" bson:"header"`
 	Info   string `json:"info" bson:"info"`
 
-	// will be deprecated
-	Ads []PortalAd `json:"ads" bson:"ads"`
-
 	// advertisements for user
 	AdsIDs         []string `json:"ads_ids" bson:"ads_ids"`
 	AdsToWatch     int      `json:"ads_to_watch" bson:"ads_to_watch"`
@@ -278,6 +275,13 @@ type PortalAuthorizationConfig struct {
 
 	// skip final page (with data about how much to internet)
 	SkipFinalPage bool `json:"skip_final_page" bson:"skip_final_page"`
+
+	// is authorisation transferable on NAS
+	// thus it could be divided to small chunks on NAS
+	Transferable bool `json:"transferable" bson:"transferable"`
+
+	// DEPRECATED
+	Ads []PortalAd `json:"ads" bson:"ads"`
 }
 
 func (p *PortalAuthorizationConfig) SortAd() {
