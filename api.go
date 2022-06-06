@@ -148,6 +148,9 @@ type PortalBackendRequest struct {
 	// is CNA (Captive network Assistant)
 	CNA bool `json:"cna"`
 
+	// is session transferable (internal usage)
+	Transferable bool `json:"transferable"`
+
 	// Add For UAM (aka Coova Chilli) server
 	Res       string `json:"res"`
 	UAMIP     string `json:"uamip"`
