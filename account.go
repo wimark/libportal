@@ -100,6 +100,7 @@ type PortalUserVoucher struct {
 	Used bool   `json:"used" bson:"used"`
 
 	Identity string `json:"identity" bson:"identity"`
+	Location string `json:"location" bson:"location"`
 
 	// limits
 	SpeedLimit   int   `json:"speed" bson:"speed"`
