@@ -142,6 +142,7 @@ type PortalTariffPlan struct {
 	// service info
 	Create   time.Time `json:"create" bson:"create"`
 	CreateAt int64     `json:"create_at" bson:"create_at"`
+	Location string    `json:"location" bson:"location"`
 }
 
 const (
