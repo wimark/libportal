@@ -17,6 +17,7 @@ type AccessServer struct {
 	ExternalIP string `json:"external_ip" bson:"external_ip"`
 
 	Location    string `json:"location" bson:"location"`
+	LocationID  string `json:"location_id" bson:"location_id"`
 	Description string `json:"description" bson:"description"`
 
 	Login    string `json:"login" bson:"login"`
