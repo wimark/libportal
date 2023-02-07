@@ -208,9 +208,9 @@ type PortalAuthenticationConfig struct {
 	Remember  int64 `json:"remember" bson:"remember"`
 	OPTLength int   `json:"otp_length" bson:"otp_length"`
 
-	PassGateway       string            `json:"pass_gateway" bson:"pass_gateway"`
-	PortalHTTPRequest PortalHTTPRequest `json:"portal_http_request" bson:"portal_http_request"`
-	Validate          struct {
+	PassGateway string `json:"pass_gateway" bson:"pass_gateway"`
+
+	Validate struct {
 		Regex    string `json:"regex" bson:"regex"`
 		ErrorMsg string `json:"error" bson:"error"`
 	} `json:"validate" bson:"validate"`
