@@ -1,6 +1,7 @@
 package libportal
 
 import (
+	"encoding/json"
 	"sort"
 	"strings"
 	"time"
@@ -209,6 +210,11 @@ type PortalAuthenticationConfig struct {
 	OPTLength int   `json:"otp_length" bson:"otp_length"`
 
 	PassGateway string `json:"pass_gateway" bson:"pass_gateway"`
+
+	PostRequest struct {
+		URL     string          `json:"url" bson:"url"`
+		Payload json.RawMessage `json:"payload" bson:"payload"`
+	} `json:"post_request" bson:"post_request"`
 
 	Validate struct {
 		Regex    string `json:"regex" bson:"regex"`
